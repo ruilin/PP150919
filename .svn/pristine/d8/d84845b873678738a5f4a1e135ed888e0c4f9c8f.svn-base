@@ -1,0 +1,113 @@
+package com.sunnyday.app;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+
+import com.sunday.app.R;
+import com.sunnyday.app.util.Debug;
+import com.sunnyday.view.diary.DiaryListView;
+
+public class MainActivity extends Activity implements View.OnClickListener, View.OnFocusChangeListener {
+
+	private RelativeLayout mTab;
+	private LinearLayout contentContainer;
+	private ImageView mBtnFriends;
+	private ImageView mBtnNews;
+	private ImageView mBtnRecord;
+	private ImageView mBtnSetting;
+	private ImageView mBtnSquare;
+	
+	private ImageView mNewsNumber;
+	private ImageView friendUpdateIcon;
+	
+	private DiaryListView mViewPlaza;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        this.mTab = ((RelativeLayout)findViewById(R.id.main_tab_bar));
+        this.contentContainer = ((LinearLayout)findViewById(R.id.main_container));
+        this.mBtnSquare = ((ImageView)findViewById(R.id.main_btn_square));
+        this.mBtnNews = ((ImageView)findViewById(R.id.main_btn_destination));
+        this.mBtnRecord = ((ImageView)findViewById(R.id.main_btn_record));
+        this.mBtnSetting = ((ImageView)findViewById(R.id.main_btn_setting));
+        this.mBtnFriends = ((ImageView)findViewById(R.id.main_btn_friends));
+        this.mNewsNumber = ((ImageView)findViewById(R.id.main_setting_news_number));
+        this.friendUpdateIcon = ((ImageView)findViewById(R.id.update_friends));
+        
+        mBtnSquare.setOnClickListener(this);
+        mBtnNews.setOnClickListener(this);
+        mBtnRecord.setOnClickListener(this);
+        mBtnSetting.setOnClickListener(this);
+        mBtnFriends.setOnClickListener(this);
+        
+        mBtnSquare.setOnFocusChangeListener(this);
+        mBtnNews.setOnFocusChangeListener(this);
+        mBtnRecord.setOnFocusChangeListener(this);
+        mBtnSetting.setOnFocusChangeListener(this);
+        mBtnFriends.setOnFocusChangeListener(this);
+        
+        mViewPlaza = new DiaryListView(this);
+        contentContainer.addView(mViewPlaza);
+        
+    }
+
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    }
+    
+    @Override
+    protected void onPause() {
+    	super.onPause();
+    }
+    
+    @Override
+    protected void onDestroy() {
+    	super.onDestroy();
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+	@Override
+	public void onClick(View v) {
+		Debug.logi("MainActivity onClick()");
+		switch (v.getId()) {
+		case R.id.main_btn_square:
+			Debug.logt("MainActivity onClick() main_btn_square");
+			break;
+		case R.id.main_btn_destination:
+			Debug.logt("MainActivity onClick() main_btn_destination");
+			break;
+		case R.id.main_btn_record:
+			Debug.logt("MainActivity onClick() main_btn_record");
+			break;
+		case R.id.main_btn_setting:
+			Debug.logt("MainActivity onClick() main_btn_setting");
+			break;
+		case R.id.main_btn_friends:
+			Debug.logt("MainActivity onClick() main_btn_friends");
+			break;
+		default:
+			break;
+		}
+	}
+	
+	@Override
+	public void onFocusChange(View v, boolean hasFocus) {
+		Debug.logt("MainActivity onFocusChange(): " + v.getId() + " " + hasFocus);
+	}
+    
+}

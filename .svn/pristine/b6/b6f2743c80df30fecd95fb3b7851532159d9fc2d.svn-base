@@ -1,0 +1,22 @@
+package com.sunnyday.view.diary;
+
+import android.graphics.Bitmap;
+
+public class DiaryItem {
+	private String title;
+	private Bitmap icon;
+	
+	public String getName() {
+		return title;
+	}
+	public void setName(String name) {
+		this.title = name;
+	}
+	public Bitmap getIcon() {
+		return icon;
+	}
+	public void setIcon(Bitmap icon) {
+		this.icon = icon;
+	}
+	
+}

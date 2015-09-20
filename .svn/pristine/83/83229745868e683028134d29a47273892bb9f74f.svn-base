@@ -1,0 +1,16 @@
+package com.sunnyday.view.diary;
+
+import android.content.Context;
+import android.util.AttributeSet;
+
+import com.sunnyday.view.common.RefreshViewLayout;
+
+public class DiaryView extends RefreshViewLayout {
+	DiaryListView contentView;
+	public DiaryView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		contentView = new DiaryListView(context);
+        addView(contentView);
+	}
+
+}
