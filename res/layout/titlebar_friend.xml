@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="52dp"
+    android:layout_height="50dp"
     android:background="@color/title_bar_bg_blue"
     android:orientation="horizontal" >
 
@@ -11,12 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/title_diary"
+        android:text="@string/title_friend"
         android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/title_left"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentLeft="true"
@@ -26,7 +26,7 @@
             android:src="@drawable/menu" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/title_right"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"

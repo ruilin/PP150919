@@ -23,4 +23,6 @@
 	 <string name="blog_scenery">途径景点：</string>
 	 <string name="blog_gps">GPS位置：</string>
 	 <string name="blog_acount">选择账号：</string>
+	 
+	 <string name="title_friend">关注</string>
 </resources>
