@@ -6,5 +6,5 @@
     <include layout = "@layout/titlebar_friend"
         android:id="@+id/friend_title"
         />
-	<include layout = "@layout/friend_list"/>
+
 </LinearLayout>

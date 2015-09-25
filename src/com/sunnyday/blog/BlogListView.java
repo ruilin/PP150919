@@ -44,7 +44,7 @@ public class BlogListView extends ListView {
 		Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.head);
 		Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.yjdefimg);
 		List<BlogItem> data = new ArrayList<BlogItem>();
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 5; i++) {
 			BlogItem item = new BlogItem();
 			item.setName("测试数据" + i);
 			item.setIcon(icon);
