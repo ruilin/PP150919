@@ -18,6 +18,8 @@ import com.sunnyday.util.AppDebug;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
+	private final int TAB_COUNT = 5;
+
 	private RelativeLayout mTabBar;
 	private LinearLayout contentContainer;
 	private ImageView mBtnFriends;
@@ -25,8 +27,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 	private ImageView mBtnBlog;
 	private ImageView mBtnSetting;
 	private ImageView mBtnSquare;
-	private final int TAB_COUNT = 5;
-	private int curIndex;
+	private int curIndex = -1;
 	private View mViewList[];
 	private ImageView mTab[];
 	
@@ -52,7 +53,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         	mTab[i].setOnClickListener(this);
         	mTab[i].setOnFocusChangeListener(this);
         }
-        resetTab(1);
+        resetTab(3);
+        mTab[curIndex].requestFocus();
     }
 
     @Override
@@ -114,56 +116,55 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 			switch (v.getId()) {
 			case R.id.main_btn_hot:
 				resetTab(0);
-				AppDebug.logt("MainActivity onClick() main_btn_square");
+				AppDebug.logt("MainActivity onFocusChange() main_btn_square");
 				break;
 			case R.id.main_btn_destination:
 				resetTab(1);
-				AppDebug.logt("MainActivity onClick() main_btn_destination");
+				AppDebug.logt("MainActivity onFocusChange() main_btn_destination");
 				break;
 			case R.id.main_btn_blog:
 				resetTab(2);
-				AppDebug.logt("MainActivity onClick() main_btn_record");
-				break;
-			case R.id.main_btn_setting:
-				resetTab(3);
-				AppDebug.logt("MainActivity onClick() main_btn_setting");
+				AppDebug.logt("MainActivity onFocusChange() main_btn_record");
 				break;
 			case R.id.main_btn_friends:
+				resetTab(3);
+				AppDebug.logt("MainActivity onFocusChange() main_btn_friends");
+				break;
+			case R.id.main_btn_setting:
 				resetTab(4);
-				AppDebug.logt("MainActivity onClick() main_btn_friends");
+				AppDebug.logt("MainActivity onFocusChange() main_btn_setting");
 				break;
-			default:
-				break;
+			default: break;
 			}
 		}
 		AppDebug.logt("MainActivity onFocusChange(): " + v.getId() + " " + hasFocus);
 	}
     
 	private void resetTab(int i) {
-		if (i != curIndex) {
-			contentContainer.removeAllViews();
-			if (null == mViewList[i]) {
-				switch (i) {
+		int oldIndex = curIndex;
+		curIndex = i;
+		if (oldIndex != curIndex) {
+			if (null == mViewList[curIndex]) {
+				switch (curIndex) {
 				case 0:
-			        mViewList[i] = new BlogView(this, null);
+			        mViewList[curIndex] = new BlogView(this, null);
 					break;
 				case 1:
-					mViewList[i] = new BlogView(this, null);
+					mViewList[curIndex] = new BlogView(this, null);
 					break;
 				case 2:
-					mViewList[i] = new BlogView(this, null);
+					mViewList[curIndex] = new BlogView(this, null);
 					break;
 				case 3:
-					  mViewList[i] = new FriendView(this);
+					  mViewList[curIndex] = new FriendView(this);
 					break;
 				case 4:
-					mViewList[i] = new BlogView(this, null);
+					mViewList[curIndex] = new BlogView(this, null);
 					break;
 				}
 			}
-			contentContainer.addView(mViewList[i]);
-			mTab[i].requestFocus();
-			curIndex = i;
+			contentContainer.removeAllViews();
+			contentContainer.addView(mViewList[curIndex]);
 		}
 	}
 }

@@ -30,4 +30,8 @@ public final class AppDebug {
 	public static final void logt(String msg) {
 		Log.e(LOGTAG_TEST, msg);
 	}
+	
+	public static final void logflag() {
+		Log.e(LOGTAG_TEST, "[APP Debuge] xxx !");
+	}
 }
