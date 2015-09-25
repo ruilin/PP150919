@@ -46,15 +46,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mTab[0] = ((ImageView)findViewById(R.id.main_btn_hot));
         mTab[1] = ((ImageView)findViewById(R.id.main_btn_destination));
         mTab[2] = ((ImageView)findViewById(R.id.main_btn_blog));
-        mTab[3] = ((ImageView)findViewById(R.id.main_btn_setting));
-        mTab[4] = ((ImageView)findViewById(R.id.main_btn_friends));
+        mTab[3] = ((ImageView)findViewById(R.id.main_btn_friends));
+        mTab[4] = ((ImageView)findViewById(R.id.main_btn_setting));
         
         for (int i = 0; i < TAB_COUNT; i++) {
         	mTab[i].setOnClickListener(this);
         	mTab[i].setOnFocusChangeListener(this);
         }
-        resetTab(3);
-        mTab[curIndex].requestFocus();
+        setTab(3);
     }
 
     @Override
@@ -78,7 +77,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
+    
+    public boolean setTab(int index) {
+    	if (0 <= index && index < TAB_COUNT) {
+    		 mTab[index].requestFocus();
+    		 return true;
+    	}
+    	return false;
+    }
 
 	@Override
 	public void onClick(View v) {

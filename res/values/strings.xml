@@ -25,4 +25,9 @@
 	 <string name="blog_acount">选择账号：</string>
 	 
 	 <string name="title_friend">关注</string>
+	 <string name="friend_circle">驴友圈</string>
+	 <string name="friend_my">我的驴友</string>
+	 <string name="friend_blog">最新日志</string>
+	 <string name="friend_trave">最新游记</string>
+	 <string name="friend_line">最新线路</string>
 </resources>
