@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">大晴天</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="title_plaza">精选</string>
+	
+	 <string name="pull_to_refresh">下拉可以刷新</string>
+	 <string name="release_to_refresh">释放立即刷新</string>
+	 <string name="refreshing">正在刷新…</string>
+	 <string name="not_updated_yet">暂未更新过</string>
+	 <string name="updated_at">上次更新于%1$s前</string>
+	 <string name="updated_just_now">刚刚更新</string>
+	 <string name="time_error">时间有问题</string>
+	 
+	 <string name="title_diary">我的旅行</string>
+	 
+	 <string name="blog_edit">添加日志</string>
+	 <string name="blog_content">日志内容：</string>
+	 <string name="blog_edit_tip">请输入</string>
+	 <string name="blog_date">旅行日期：</string>
+	 <string name="blog_scenery">途径景点：</string>
+	 <string name="blog_gps">GPS位置：</string>
+	 <string name="blog_acount">选择账号：</string>
+	 
+	 <string name="title_friend">关注</string>
+	 <string name="friend_circle">驴友圈</string>
+	 <string name="friend_my">我的驴友</string>
+	 <string name="friend_blog">最新日志</string>
+	 <string name="friend_trave">最新游记</string>
+	 <string name="friend_line">最新线路</string>
+</resources>

@@ -2,6 +2,10 @@ package com.sunnyday.common.view;
 
 import java.util.List;
 
+import com.sunnyday.app.MainActivity;
+import com.sunnyday.app.SunnyDayApp;
+import com.sunnyday.util.AppDebug;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -14,6 +18,7 @@ import android.widget.ImageView;
 
 public class NineGridLayout extends ViewGroup {
 
+	private Context context;
     /**
      * 图片之间的间隔
      */
@@ -22,33 +27,39 @@ public class NineGridLayout extends ViewGroup {
     private int rows;//
     private List listData;
     private int totalWidth;
+    private int imgWidth;
 
     public NineGridLayout(Context context) {
         super(context);
+        this.context = context;
     }
 
     public NineGridLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        ScreenTools screenTools=ScreenTools.instance(context);
-        totalWidth=screenTools.getScreenWidth(context) - screenTools.dip2px(context, 80);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
     }
     
-    private void layoutChildrenView() {
+    @Override
+    protected void onAttachedToWindow() {
+    	super.onAttachedToWindow();
+    }
+    
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+    	// TODO Auto-generated method stub
+    	super.onSizeChanged(w, h, oldw, oldh);
+    }
+    
+    private void layoutChildrenView(int w, int h) {
+    	totalWidth = w;
+    	if (null == context) 
+    		context = SunnyDayApp.getInstance().getApplicationContext();
+    	imgWidth = totalWidth / 3 - gap;
+    	
     	int childrenCount = listData.size();
 //        int singleWidth = (totalWidth - gap * (3 - 1)) / 3;
 //        int singleHeight = singleWidth;
-        int px = ScreenTools.dip2px(getContext(), 80);
-        int singleWidth = px;
-        int singleHeight = px;
+        int singleWidth = imgWidth;
+        int singleHeight = imgWidth;
 
         //根据子view数量确定高度
         ViewGroup.LayoutParams params = getLayoutParams();
@@ -92,7 +103,7 @@ public class NineGridLayout extends ViewGroup {
     /*
      * TODO 数据类型有待优化
      */
-    public void setImagesData(List<Bitmap> lists) {
+    public void setImagesData(List<Bitmap> lists, int w, int h) {
         if (lists == null || lists.isEmpty()) {
             return;
         }
@@ -120,7 +131,7 @@ public class NineGridLayout extends ViewGroup {
             }
         }
         listData = lists;
-        layoutChildrenView();
+        layoutChildrenView(w, h);
     }
 
     /**
@@ -167,4 +178,10 @@ public class NineGridLayout extends ViewGroup {
         iv.setBackgroundColor(Color.parseColor("#f5f5f5"));
         return iv;
     }
+
+	@Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+		// TODO Auto-generated method stub
+		
+	}
 }

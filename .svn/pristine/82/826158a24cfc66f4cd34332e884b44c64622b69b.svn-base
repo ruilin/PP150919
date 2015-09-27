@@ -1,26 +1,25 @@
 package com.sunnyday.blog;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.sunday.app.R;
-import com.sunnyday.common.view.ScreenTools;
 
 public class BlogListView extends ListView {
-	Timer timer;
-	 
-	public BlogListView(final Context context) {
+
+	public BlogListView(Context context) {
 		super(context);
 //		this.setDivider(new ColorDrawable(Color.TRANSPARENT));
 //		this.setDividerHeight(10);
@@ -39,14 +38,11 @@ public class BlogListView extends ListView {
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
 			}
 		});
-		
 	}
 
 	private List<BlogItem> getData() {
-		Bitmap icon = BitmapFactory.decodeResource(getResources(),
-				R.drawable.head);
-		Bitmap img = BitmapFactory.decodeResource(getResources(),
-				R.drawable.yjdefimg);
+		Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.head);
+		Bitmap img = BitmapFactory.decodeResource(getResources(), R.drawable.yjdefimg);
 		List<BlogItem> data = new ArrayList<BlogItem>();
 		for (int i = 0; i < 5; i++) {
 			BlogItem item = new BlogItem();

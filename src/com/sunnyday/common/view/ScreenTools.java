@@ -15,11 +15,11 @@ public class ScreenTools {
 		return instance;
 	}
 	
-	public int getScreenWidth(Context ctx) {
+	public static int getScreenWidth(Context ctx) {
 		return ctx.getResources().getDisplayMetrics().widthPixels;
 	}
 	
-	public int getScreenHeight(Context ctx) {
+	public static int getScreenHeight(Context ctx) {
 		return ctx.getResources().getDisplayMetrics().heightPixels;
 	}
 	

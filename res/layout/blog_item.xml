@@ -6,8 +6,8 @@
     android:clipToPadding="true"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
+    android:paddingLeft="@dimen/view_gap_horizontal"
+    android:paddingRight="@dimen/view_gap_horizontal"
     >
 
     <!-- 
@@ -62,6 +62,7 @@
         android:id="@+id/diary_ninegrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="6dp">
     </com.sunnyday.common.view.NineGridLayout>
 

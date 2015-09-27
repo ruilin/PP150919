@@ -13,9 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sunday.app.R;
-import com.sunnyday.common.view.GridImage;
-import com.sunnyday.common.view.GridImageView;
 import com.sunnyday.common.view.NineGridLayout;
+import com.sunnyday.common.view.ScreenTools;
 
 public class BlogAdapter extends BaseAdapter {
 
@@ -86,7 +85,10 @@ public class BlogAdapter extends BaseAdapter {
             list.add(diaryItem.getImg());
             list.add(diaryItem.getImg());
             list.add(diaryItem.getImg());
-            viewHolder.ninegrid.setImagesData(list);
+            
+            /** TODO 尺寸为临时数据 */
+            int screenGap = (int) convertView.getResources().getDimension(R.dimen.view_gap_horizontal);
+            viewHolder.ninegrid.setImagesData(list, ScreenTools.getScreenWidth(mContext) - (screenGap << 1), ScreenTools.getScreenHeight(mContext));
         }
         return convertView;
 	}
