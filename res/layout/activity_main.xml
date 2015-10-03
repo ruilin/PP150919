@@ -38,27 +38,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <ImageView
-                    android:id="@+id/main_btn_hot"
-		            android:layout_weight="1"
-		            android:layout_width="0.0dip"
-                    android:layout_height="fill_parent"
-                    android:clickable="true"
-                    android:focusableInTouchMode="true"
-                    android:background="#00000000"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/btn_tab_hot" />
+                <include android:id="@+id/item_0" layout="@layout/main_bar_item"/>
 
-                <ImageView
-                    android:id="@+id/main_btn_destination"
-      		        android:layout_weight="1"	
-		            android:layout_width="0.0dip"
-                    android:layout_height="fill_parent"
-                    android:clickable="true"
-                    android:focusableInTouchMode="true"
-                    android:background="#00000000"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/btn_tab_destination" />
+                <include android:id="@+id/item_1" layout="@layout/main_bar_item"/>
+                
+                <include android:id="@+id/item_2" layout="@layout/main_bar_item"/>
+                
+                <include android:id="@+id/item_3" layout="@layout/main_bar_item"/>
+                
+                <include android:id="@+id/item_4" layout="@layout/main_bar_item"/>
 				<!-- 
                 <ImageView
                     android:id="@+id/main_btn_record"
@@ -69,7 +57,7 @@
                     android:clickable="true"
                     android:focusableInTouchMode="true" />
  				-->
-                 <ImageView	
+                 <!-- <ImageView	
                         android:id="@+id/main_btn_blog"
 		            	android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
@@ -80,64 +68,96 @@
                         android:src="@drawable/btn_tab_blog" />
                  
                 <RelativeLayout
-                    android:id="@+id/plaza_wrapper"
+                    android:id="@+id/friend_wrapper"
 					android:layout_weight="1"
 		            android:layout_width="0.0dip"
+		            android:clickable="true"
+		            android:focusableInTouchMode="true"
                     android:layout_height="fill_parent" >
-
-                    <ImageView
-                        android:id="@+id/main_btn_friends"
-		            	android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:clickable="true"
-                        android:focusableInTouchMode="true"
-                        android:background="#00000000"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/btn_tab_friends" />
 
                     <ImageView
                         android:id="@+id/update_friends"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_alignTop="@id/main_btn_friends"
+                        android:layout_alignParentTop="true"
                         android:layout_marginRight="10.0dip"
                         android:layout_marginTop="4.0dip"
-                        android:clickable="true"
+                        android:layout_centerHorizontal="true"
+                        android:focusable="false"
                         android:src="@drawable/icon_dot"
                         android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="4dp"
+                        android:layout_centerHorizontal="true"
+                        android:focusable="false"
+                        android:text="关注"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/main_btn_friends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#00000000"
+                        android:focusable="false"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/btn_tab_friends" />
+
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:id="@+id/setting_wrapper"
-                    android:layout_weight="1"
+				<RelativeLayout
+                    android:id="@+id/me_wrapper"
+					android:layout_weight="1"
 		            android:layout_width="0.0dip"
+		            android:clickable="true"
+		            android:focusableInTouchMode="true"
                     android:layout_height="fill_parent" >
 
                     <ImageView
-                        android:id="@+id/main_btn_setting"
-                       	android:layout_weight="1"
-		            	android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_centerInParent="true"
-                        android:clickable="true"
-                        android:focusableInTouchMode="true"
-                        android:background="#00000000"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/btn_tab_me" />
-
-                    <ImageView
-                        android:id="@+id/main_setting_news_number"
+                        android:id="@+id/dot_me"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_alignTop="@id/main_btn_setting"
+                        android:layout_alignParentTop="true"
                         android:layout_marginRight="10.0dip"
                         android:layout_marginTop="4.0dip"
-                        android:clickable="true"
+                        android:layout_centerHorizontal="true"
+                        android:focusable="false"
                         android:src="@drawable/icon_dot"
                         android:visibility="visible" />
-                </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_me"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="4dp"
+                        android:layout_centerHorizontal="true"
+                        android:focusable="false"
+                        android:text="设置"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/iv_me"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="#00000000"
+                        android:focusable="false"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/btn_tab_me" />
+
+                </RelativeLayout> -->
             </TableRow>
         </TableLayout>
     </RelativeLayout>
