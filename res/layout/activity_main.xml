@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
-    tools:context="com.sunnyday.app.MainActivity" >
+    tools:context="com.dqt.app.MainActivity" >
 
     <LinearLayout
         android:id="@+id/main_container"
@@ -28,15 +28,11 @@
         android:layout_alignParentBottom="true"
         android:background="@color/tab_bar_bg" >
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="50dp"
-            android:shrinkColumns="*"
             android:stretchColumns="*" >
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
 
                 <include android:id="@+id/item_0" layout="@layout/main_bar_item"/>
 
@@ -158,8 +154,7 @@
                         android:src="@drawable/btn_tab_me" />
 
                 </RelativeLayout> -->
-            </TableRow>
-        </TableLayout>
+        </LinearLayout>
     </RelativeLayout>
 
 </RelativeLayout>

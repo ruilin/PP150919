@@ -8,18 +8,22 @@
 package com.sunday.app;
 
 public final class R {
+    public static final class anim {
+        public static final int pic_selector_slide_in=0x7f040000;
+        public static final int pic_selector_slide_out=0x7f040001;
+    }
     public static final class attr {
     }
     public static final class color {
-        public static final int black=0x7f040008;
-        public static final int blue=0x7f040006;
-        public static final int common_setting_bg=0x7f040003;
-        public static final int gray=0x7f040005;
-        public static final int tab_bar_bg=0x7f040001;
-        public static final int title_bar_bg_blue=0x7f040004;
-        public static final int title_bg=0x7f040007;
-        public static final int v4_plaza_bg=0x7f040002;
-        public static final int white=0x7f040000;
+        public static final int black=0x7f050008;
+        public static final int blue=0x7f050006;
+        public static final int common_setting_bg=0x7f050003;
+        public static final int gray=0x7f050005;
+        public static final int tab_bar_bg=0x7f050001;
+        public static final int title_bar_bg_blue=0x7f050004;
+        public static final int title_bg=0x7f050007;
+        public static final int v4_plaza_bg=0x7f050002;
+        public static final int white=0x7f050000;
     }
     public static final class dimen {
         /** 
@@ -27,8 +31,10 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050001;
-        public static final int view_gap_horizontal=0x7f050000;
+        public static final int activity_horizontal_margin=0x7f060003;
+        public static final int add_img_gap=0x7f060001;
+        public static final int add_img_height=0x7f060002;
+        public static final int view_gap_horizontal=0x7f060000;
     }
     public static final class drawable {
         public static final int blog=0x7f020000;
@@ -46,128 +52,162 @@ public final class R {
         public static final int friend=0x7f02000c;
         public static final int friendg=0x7f02000d;
         public static final int friendw=0x7f02000e;
-        public static final int head=0x7f02000f;
-        public static final int hotg=0x7f020010;
-        public static final int hotw=0x7f020011;
-        public static final int ic_launcher=0x7f020012;
-        public static final int icon_dot=0x7f020013;
-        public static final int icon_drop_down_w=0x7f020014;
-        public static final int icon_search_w_48=0x7f020015;
-        public static final int icon_speaker_w_48=0x7f020016;
-        public static final int meg=0x7f020017;
-        public static final int menu=0x7f020018;
-        public static final int mew=0x7f020019;
-        public static final int plus_w=0x7f02001a;
-        public static final int shape=0x7f02001b;
-        public static final int storeg=0x7f02001c;
-        public static final int storew=0x7f02001d;
-        public static final int xianlu=0x7f02001e;
-        public static final int yjdefimg=0x7f02001f;
-        public static final int youji=0x7f020020;
+        public static final int gridview_addpic=0x7f02000f;
+        public static final int head=0x7f020010;
+        public static final int hotg=0x7f020011;
+        public static final int hotw=0x7f020012;
+        public static final int ic_launcher=0x7f020013;
+        public static final int icon_dot=0x7f020014;
+        public static final int icon_drop_down_w=0x7f020015;
+        public static final int icon_search_w_48=0x7f020016;
+        public static final int icon_speaker_w_48=0x7f020017;
+        public static final int meg=0x7f020018;
+        public static final int menu=0x7f020019;
+        public static final int mew=0x7f02001a;
+        public static final int pic_selector_choose_dir=0x7f02001b;
+        public static final int pic_selector_dir=0x7f02001c;
+        public static final int pic_selector_no=0x7f02001d;
+        public static final int pic_selector_selected=0x7f02001e;
+        public static final int pic_selector_unselected=0x7f02001f;
+        public static final int plus_w=0x7f020020;
+        public static final int shape=0x7f020021;
+        public static final int storeg=0x7f020022;
+        public static final int storew=0x7f020023;
+        public static final int xianlu=0x7f020024;
+        public static final int yjdefimg=0x7f020025;
+        public static final int youji=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f090032;
-        public static final int blog_refreshView=0x7f09000d;
-        public static final int blog_title=0x7f09000c;
-        public static final int description=0x7f090028;
-        public static final int diary_icon=0x7f090007;
-        public static final int diary_log=0x7f09000a;
-        public static final int diary_ninegrid=0x7f09000b;
-        public static final int diary_remark=0x7f090009;
-        public static final int diary_title=0x7f090008;
-        public static final int dot=0x7f090023;
-        public static final int editText1=0x7f090010;
-        public static final int editText2=0x7f090013;
-        public static final int editText3=0x7f090016;
-        public static final int editText4=0x7f090019;
-        public static final int editText5=0x7f09001c;
-        public static final int friend_item_icon=0x7f09001d;
-        public static final int friend_item_text=0x7f09001e;
-        public static final int friend_title=0x7f090022;
-        public static final int icon=0x7f090025;
-        public static final int imageView1=0x7f09001f;
-        public static final int imageView2=0x7f090020;
-        public static final int imageView3=0x7f090021;
-        public static final int item_0=0x7f090002;
-        public static final int item_1=0x7f090003;
-        public static final int item_2=0x7f090004;
-        public static final int item_3=0x7f090005;
-        public static final int item_4=0x7f090006;
-        public static final int linearLayout1=0x7f090027;
-        public static final int main_container=0x7f090000;
-        public static final int main_tab_bar=0x7f090001;
-        public static final int page_indicator=0x7f09002e;
-        public static final int progressBar=0x7f09002a;
-        public static final int pull_to_refresh_head=0x7f090026;
-        public static final int scrollView1=0x7f09000e;
-        public static final int splash_bg=0x7f09002c;
-        public static final int splash_guide=0x7f09002d;
-        public static final int splash_loading=0x7f09002f;
-        public static final int splash_root=0x7f09002b;
-        public static final int tableRow1=0x7f090011;
-        public static final int tableRow2=0x7f090014;
-        public static final int tableRow3=0x7f090017;
-        public static final int tableRow4=0x7f09001a;
-        public static final int text=0x7f090024;
-        public static final int textView1=0x7f09000f;
-        public static final int textView2=0x7f090012;
-        public static final int textView3=0x7f090015;
-        public static final int textView4=0x7f090018;
-        public static final int textView5=0x7f09001b;
-        public static final int title_left=0x7f090030;
-        public static final int title_right=0x7f090031;
-        public static final int updated_at=0x7f090029;
+        public static final int action_settings=0x7f0a0043;
+        public static final int adLayout=0x7f0a0037;
+        public static final int blog_refreshView=0x7f0a001e;
+        public static final int blog_title=0x7f0a001d;
+        public static final int description=0x7f0a003b;
+        public static final int diary_icon=0x7f0a0018;
+        public static final int diary_log=0x7f0a001b;
+        public static final int diary_ninegrid=0x7f0a001c;
+        public static final int diary_remark=0x7f0a001a;
+        public static final int diary_title=0x7f0a0019;
+        public static final int dot=0x7f0a0024;
+        public static final int editText1=0x7f0a000b;
+        public static final int editText2=0x7f0a000e;
+        public static final int editText3=0x7f0a0011;
+        public static final int editText5=0x7f0a0017;
+        public static final int et_gps=0x7f0a0014;
+        public static final int friend_item_icon=0x7f0a001f;
+        public static final int friend_item_text=0x7f0a0020;
+        public static final int friend_title=0x7f0a0023;
+        public static final int gridView1=0x7f0a0009;
+        public static final int icon=0x7f0a0026;
+        public static final int id_bottom_ly=0x7f0a002e;
+        public static final int id_choose_dir=0x7f0a002f;
+        public static final int id_dir_item_count=0x7f0a002c;
+        public static final int id_dir_item_image=0x7f0a002a;
+        public static final int id_dir_item_name=0x7f0a002b;
+        public static final int id_finish=0x7f0a0030;
+        public static final int id_gridView=0x7f0a002d;
+        public static final int id_item_image=0x7f0a0027;
+        public static final int id_item_select=0x7f0a0028;
+        public static final int id_list_dir=0x7f0a0029;
+        public static final int id_total_count=0x7f0a0031;
+        public static final int id_total_count2=0x7f0a0032;
+        public static final int imageView1=0x7f0a0007;
+        public static final int imageView2=0x7f0a0021;
+        public static final int imageView3=0x7f0a0022;
+        public static final int item_0=0x7f0a0002;
+        public static final int item_1=0x7f0a0003;
+        public static final int item_2=0x7f0a0004;
+        public static final int item_3=0x7f0a0005;
+        public static final int item_4=0x7f0a0006;
+        public static final int linearLayout1=0x7f0a003a;
+        public static final int main_container=0x7f0a0000;
+        public static final int main_tab_bar=0x7f0a0001;
+        public static final int page_indicator=0x7f0a0041;
+        public static final int pic_fra=0x7f0a0038;
+        public static final int pic_gallery=0x7f0a0036;
+        public static final int progressBar=0x7f0a003d;
+        public static final int pull_to_refresh_head=0x7f0a0039;
+        public static final int rootLayout=0x7f0a0035;
+        public static final int scrollView1=0x7f0a0008;
+        public static final int splash_bg=0x7f0a003f;
+        public static final int splash_guide=0x7f0a0040;
+        public static final int splash_loading=0x7f0a0042;
+        public static final int splash_root=0x7f0a003e;
+        public static final int tableRow1=0x7f0a000c;
+        public static final int tableRow2=0x7f0a000f;
+        public static final int tableRow3=0x7f0a0012;
+        public static final int tableRow4=0x7f0a0015;
+        public static final int text=0x7f0a0025;
+        public static final int textView1=0x7f0a000a;
+        public static final int textView2=0x7f0a000d;
+        public static final int textView3=0x7f0a0010;
+        public static final int textView4=0x7f0a0013;
+        public static final int textView5=0x7f0a0016;
+        public static final int title_left=0x7f0a0033;
+        public static final int title_right=0x7f0a0034;
+        public static final int updated_at=0x7f0a003c;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int blog_item=0x7f030001;
-        public static final int blog_main=0x7f030002;
-        public static final int blog_new_main=0x7f030003;
-        public static final int friend_item=0x7f030004;
-        public static final int friend_list=0x7f030005;
-        public static final int friend_main=0x7f030006;
-        public static final int main_bar_item=0x7f030007;
-        public static final int pull_to_refresh=0x7f030008;
-        public static final int splash=0x7f030009;
-        public static final int test=0x7f03000a;
-        public static final int titlebar_blog=0x7f03000b;
-        public static final int titlebar_blog_edit=0x7f03000c;
-        public static final int titlebar_friend=0x7f03000d;
+        public static final int blog_edit_addimg=0x7f030001;
+        public static final int blog_edit_main=0x7f030002;
+        public static final int blog_item=0x7f030003;
+        public static final int blog_main=0x7f030004;
+        public static final int friend_item=0x7f030005;
+        public static final int friend_list=0x7f030006;
+        public static final int friend_main=0x7f030007;
+        public static final int main_bar_item=0x7f030008;
+        public static final int pic_selector_grid_item=0x7f030009;
+        public static final int pic_selector_list_dir=0x7f03000a;
+        public static final int pic_selector_list_dir_item=0x7f03000b;
+        public static final int pic_selector_main=0x7f03000c;
+        public static final int pic_selector_titlebar=0x7f03000d;
+        public static final int picture_view=0x7f03000e;
+        public static final int picture_view_activity=0x7f03000f;
+        public static final int pull_to_refresh=0x7f030010;
+        public static final int splash=0x7f030011;
+        public static final int test=0x7f030012;
+        public static final int titlebar_blog=0x7f030013;
+        public static final int titlebar_blog_edit=0x7f030014;
+        public static final int titlebar_friend=0x7f030015;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_settings=0x7f060001;
-        public static final int app_name=0x7f060000;
-        public static final int blog_acount=0x7f060017;
-        public static final int blog_content=0x7f060012;
-        public static final int blog_date=0x7f060014;
-        public static final int blog_edit=0x7f060011;
-        public static final int blog_edit_tip=0x7f060013;
-        public static final int blog_gps=0x7f060016;
-        public static final int blog_scenery=0x7f060015;
-        public static final int friend_blog=0x7f06001b;
-        public static final int friend_circle=0x7f060019;
-        public static final int friend_line=0x7f06001d;
-        public static final int friend_my=0x7f06001a;
-        public static final int friend_trave=0x7f06001c;
-        public static final int hello_world=0x7f060002;
-        public static final int main_bar_item0=0x7f060004;
-        public static final int main_bar_item1=0x7f060005;
-        public static final int main_bar_item2=0x7f060006;
-        public static final int main_bar_item3=0x7f060007;
-        public static final int main_bar_item4=0x7f060008;
-        public static final int not_updated_yet=0x7f06000c;
-        public static final int pull_to_refresh=0x7f060009;
-        public static final int refreshing=0x7f06000b;
-        public static final int release_to_refresh=0x7f06000a;
-        public static final int time_error=0x7f06000f;
-        public static final int title_diary=0x7f060010;
-        public static final int title_friend=0x7f060018;
-        public static final int title_plaza=0x7f060003;
-        public static final int updated_at=0x7f06000d;
-        public static final int updated_just_now=0x7f06000e;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int blog_acount=0x7f070017;
+        public static final int blog_content=0x7f070012;
+        public static final int blog_date=0x7f070014;
+        public static final int blog_edit=0x7f070011;
+        public static final int blog_edit_tip=0x7f070013;
+        public static final int blog_gps=0x7f070016;
+        public static final int blog_scenery=0x7f070015;
+        public static final int friend_blog=0x7f07001b;
+        public static final int friend_circle=0x7f070019;
+        public static final int friend_line=0x7f07001d;
+        public static final int friend_my=0x7f07001a;
+        public static final int friend_trave=0x7f07001c;
+        public static final int hello_world=0x7f070002;
+        public static final int main_bar_item0=0x7f070004;
+        public static final int main_bar_item1=0x7f070005;
+        public static final int main_bar_item2=0x7f070006;
+        public static final int main_bar_item3=0x7f070007;
+        public static final int main_bar_item4=0x7f070008;
+        public static final int not_updated_yet=0x7f07000c;
+        public static final int pic_selector_bottom_left=0x7f07001f;
+        public static final int pic_selector_bottom_right=0x7f070020;
+        public static final int pic_selector_title=0x7f07001e;
+        public static final int pull_to_refresh=0x7f070009;
+        public static final int refreshing=0x7f07000b;
+        public static final int release_to_refresh=0x7f07000a;
+        public static final int time_error=0x7f07000f;
+        public static final int title_diary=0x7f070010;
+        public static final int title_friend=0x7f070018;
+        public static final int title_plaza=0x7f070003;
+        public static final int updated_at=0x7f07000d;
+        public static final int updated_just_now=0x7f07000e;
     }
     public static final class style {
         /** 
@@ -191,17 +231,18 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
-        public static final int CustomTitleBackground=0x7f070007;
-        public static final int common_nav_btn_left=0x7f070004;
-        public static final int common_nav_btn_right=0x7f070005;
-        public static final int font_nav_title_white=0x7f070003;
-        public static final int nav_bg_blue=0x7f070002;
-        public static final int title=0x7f070008;
-        public static final int v4_nav_shadow=0x7f070006;
+        public static final int AppTheme=0x7f080001;
+        public static final int CustomTitleBackground=0x7f080008;
+        public static final int anim_popup_dir=0x7f080002;
+        public static final int common_nav_btn_left=0x7f080005;
+        public static final int common_nav_btn_right=0x7f080006;
+        public static final int font_nav_title_white=0x7f080004;
+        public static final int nav_bg_blue=0x7f080003;
+        public static final int title=0x7f080009;
+        public static final int v4_nav_shadow=0x7f080007;
     }
 }

@@ -36,4 +36,8 @@
 	 <string name="friend_blog">最新日志</string>
 	 <string name="friend_trave">最新游记</string>
 	 <string name="friend_line">最新线路</string>
+	 
+	 <string name="pic_selector_title">相册</string>
+	 <string name="pic_selector_bottom_left">所有图片</string>
+	 <string name="pic_selector_bottom_right">完成</string>
 </resources>

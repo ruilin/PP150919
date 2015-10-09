@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+    
+  	<include layout = "@layout/titlebar_blog_edit"/>
+  	
+	<ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+	    <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:clipToPadding="true"
+		    android:paddingTop="10dp"
+		    android:paddingBottom="10dp"
+		    android:paddingLeft="@dimen/view_gap_horizontal"
+		    android:paddingRight="@dimen/view_gap_horizontal"
+		    android:orientation="vertical" >
+
+			<!-- 网格显示图片 行列间距5dp 每列宽度90dp -->
+		    <GridView
+		        android:id="@+id/gridView1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="@dimen/add_img_height"
+		        android:background="#EFDFDF"
+		        android:numColumns="4"
+		        android:columnWidth="90dp"
+		        android:stretchMode="columnWidth"
+		        android:gravity="center" >
+		    </GridView>
+	        	
+		    <TextView
+		        android:id="@+id/textView1"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:textColor="@color/black"
+		        android:textSize="20dp"
+		        android:text="@string/blog_content" />
+		
+		    <EditText
+		        android:id="@+id/editText1"
+		        android:layout_width="match_parent"
+		        android:layout_height="120dp"
+		        android:layout_weight="0.15"
+		        android:textColor="@color/black"
+		        android:background="@drawable/edittext_bg"
+		        android:hint="@string/blog_edit_tip"
+		        android:ems="10"
+		        android:gravity="top"
+		        android:inputType="textMultiLine"
+		        android:minLines="4" >
+		
+		        <!-- <requestFocus />  -->
+		    </EditText>
+		
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" >
+		    </LinearLayout>
+		
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" >
+		
+		    </LinearLayout>
+		
+		    <TableLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:collapseColumns="2"   
+		        >
+		        <TableRow
+		            android:id="@+id/tableRow1"
+		            android:paddingTop="10dp"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" >
+		            <TextView
+		                android:id="@+id/textView2"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="16dp"
+		                android:text="@string/blog_date" />
+		            <EditText
+		                android:id="@+id/editText2"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:layout_weight="1"
+		                android:textColor="@color/black"
+		                android:ems="10"
+		                android:background="@drawable/edittext_bg"
+		                android:inputType="date" />
+		        </TableRow>
+		
+		        <TableRow
+		            android:id="@+id/tableRow2"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+		            <TextView
+		                android:id="@+id/textView3"
+		           		android:textColor="@color/black"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textSize="16dp"
+		                android:text="@string/blog_scenery" />
+		            <EditText
+		                android:id="@+id/editText3"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:background="@drawable/edittext_bg"
+		                android:layout_weight="1"
+		                android:ems="10" />
+		        </TableRow>
+		
+		        <TableRow
+		            android:id="@+id/tableRow3"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+					<TextView
+		                android:id="@+id/textView4"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="16dp"
+		                android:text="@string/blog_gps" />
+		            <EditText
+		                android:id="@+id/et_gps"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:background="@drawable/edittext_bg"
+		                android:layout_weight="1"
+		                android:ems="10" />
+		        </TableRow>
+		        
+				<TableRow
+		            android:id="@+id/tableRow4"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:textColor="@color/black"
+		            android:layout_height="wrap_content" >
+					<TextView
+		                android:id="@+id/textView5"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="16dp"
+		                android:text="@string/blog_acount" />
+		            <EditText
+		                android:id="@+id/editText5"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:background="@drawable/edittext_bg"
+		                android:layout_weight="1"
+		                android:ems="10" >
+					</EditText>
+		        </TableRow>
+		
+		    </TableLayout>
+	    </LinearLayout>
+	</ScrollView>
+</LinearLayout>

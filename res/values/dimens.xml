@@ -2,4 +2,7 @@
 <resources>
     <dimen name="view_gap_horizontal">10dp</dimen>
     
+    <dimen name="add_img_gap">5dp</dimen>
+    <dimen name="add_img_height">80dp</dimen>
+    
 </resources>

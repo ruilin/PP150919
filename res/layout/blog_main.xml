@@ -7,10 +7,10 @@
         android:id="@+id/blog_title"
         />
 
-    <com.sunnyday.common.view.RefreshViewLayout
+    <com.dqt.comm.view.RefreshViewLayout
         android:id="@+id/blog_refreshView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    </com.sunnyday.common.view.RefreshViewLayout>
+    </com.dqt.comm.view.RefreshViewLayout>
 
 </LinearLayout>

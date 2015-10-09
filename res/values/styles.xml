@@ -17,6 +17,11 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
+	<style name="anim_popup_dir">
+        <item name="android:windowEnterAnimation">@anim/pic_selector_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/pic_selector_slide_out</item>
+    </style>
+    
     <style name="nav_bg_blue">
         <item name="android:background">@color/title_bar_bg_blue</item>
         <item name="android:layout_width">fill_parent</item>
