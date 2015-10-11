@@ -36,6 +36,7 @@
 	        	
 		    <TextView
 		        android:id="@+id/textView1"
+		        android:paddingTop="10dp"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:textColor="@color/black"
@@ -43,13 +44,12 @@
 		        android:text="@string/blog_content" />
 		
 		    <EditText
-		        android:id="@+id/editText1"
+		        android:id="@+id/et_edit"
 		        android:layout_width="match_parent"
 		        android:layout_height="120dp"
 		        android:layout_weight="0.15"
 		        android:textColor="@color/black"
 		        android:background="@drawable/edittext_bg"
-		        android:hint="@string/blog_edit_tip"
 		        android:ems="10"
 		        android:gravity="top"
 		        android:inputType="textMultiLine"
@@ -87,13 +87,16 @@
 		                android:textSize="16dp"
 		                android:text="@string/blog_date" />
 		            <EditText
-		                android:id="@+id/editText2"
+		                android:id="@+id/et_date"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:layout_weight="1"
 		                android:textColor="@color/black"
 		                android:ems="10"
 		                android:background="@drawable/edittext_bg"
+		                android:textSize="16dp"
+		                android:hint="@string/blog_date_tips"
+	                 	android:windowSoftInputMode="adjustUnspecified|stateHidden"
 		                android:inputType="date" />
 		        </TableRow>
 		
@@ -110,17 +113,43 @@
 		                android:textSize="16dp"
 		                android:text="@string/blog_scenery" />
 		            <EditText
-		                android:id="@+id/editText3"
+		                android:id="@+id/et_scenery"
 		                android:layout_width="fill_parent"
 		                android:layout_height="wrap_content"
 		                android:textColor="@color/black"
 		                android:background="@drawable/edittext_bg"
 		                android:layout_weight="1"
+		                android:textSize="16dp"
+		                android:hint="@string/blog_scenery_tips"
 		                android:ems="10" />
 		        </TableRow>
 		
 		        <TableRow
 		            android:id="@+id/tableRow3"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content" >
+					<TextView
+		                android:id="@+id/tv_zone"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="16dp"
+		                android:text="@string/blog_zone" />
+		            <EditText
+		                android:id="@+id/et_zone"
+		                android:layout_width="fill_parent"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:background="@drawable/edittext_bg"
+		                android:layout_weight="1"
+		                android:textSize="16dp"
+		                android:hint="@string/blog_zone_tips"
+		                android:ems="10" />
+		        </TableRow>
+		        
+		        <TableRow
+		            android:id="@+id/tableRow4"
 		            android:paddingTop="10dp"
 		            android:layout_width="fill_parent"
 		            android:layout_height="wrap_content" >
@@ -138,11 +167,13 @@
 		                android:textColor="@color/black"
 		                android:background="@drawable/edittext_bg"
 		                android:layout_weight="1"
+		                android:textSize="16dp"
+		                android:hint="@string/blog_gps_tips"
 		                android:ems="10" />
 		        </TableRow>
 		        
 				<TableRow
-		            android:id="@+id/tableRow4"
+		            android:id="@+id/tableRow5"
 		            android:paddingTop="10dp"
 		            android:layout_width="fill_parent"
 		            android:textColor="@color/black"
@@ -155,12 +186,14 @@
 		                android:textSize="16dp"
 		                android:text="@string/blog_acount" />
 		            <EditText
-		                android:id="@+id/editText5"
+		                android:id="@+id/et_acount"
 		                android:layout_width="wrap_content"
 		                android:layout_height="wrap_content"
 		                android:textColor="@color/black"
 		                android:background="@drawable/edittext_bg"
 		                android:layout_weight="1"
+		                android:textSize="16dp"
+		                android:hint="@string/blog_acount_tips"
 		                android:ems="10" >
 					</EditText>
 		        </TableRow>

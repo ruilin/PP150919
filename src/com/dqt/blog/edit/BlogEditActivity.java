@@ -1,11 +1,15 @@
 package com.dqt.blog.edit;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 
 import com.dqt.app.BaseActivity;
+import com.dqt.comm.calendar.DatePickerCtrl;
 import com.dqt.comm.imageselector.PictureSelectorActivity;
+import com.dqt.comm.utils.FileUtil;
 import com.dqt.comm.view.ScreenTools;
 import com.dqt.ctrl.ActivityCtrl;
 import com.sunday.app.R;
@@ -24,11 +28,16 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
@@ -39,22 +48,44 @@ import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.Toast;
 
 public class BlogEditActivity extends BaseActivity {
+	public final static int CALL_IMG_MENU = 0;
+	public final static int CALL_IMG_SELECTOR = 1;
+	public final static int CALL_CAMERA = 2;
 	
-//	private final int IMAGE_OPEN = 1;
-	private BlogEditActivity activity;
+	private BlogEditActivity mActivity;
 	private GridView gridView1;
 	private static String pathImages[];
 	private Bitmap bmp;
 	private ArrayList<HashMap<String, Object>> imageItem;
 	private SimpleAdapter simpleAdapter;
 	private HashMap<String, Object> defIcon;
+	private EditText et_date;
 	private EditText et_gps;
-	
+	private LocationListener locationListener;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.blog_edit_main);
-		activity = this;
+		mActivity = this;
+		/* title */
+		View titleLeft = findViewById(R.id.title_left);
+		titleLeft.setOnClickListener(new OnClickListener() {
+			/* back */
+			@Override
+			public void onClick(View v) {
+				mActivity.finish();
+			}
+		});
+		View titleRight = findViewById(R.id.title_right);
+		titleRight.setOnClickListener(new OnClickListener() {
+			/* cancel */
+			@Override
+			public void onClick(View v) {
+				pathImages = null;
+				mActivity.finish();
+			}
+		});
+		/* add image */
         gridView1 = (GridView) findViewById(R.id.gridView1);
         bmp = BitmapFactory.decodeResource(getResources(), R.drawable.gridview_addpic);
         imageItem = new ArrayList<HashMap<String, Object>>();
@@ -86,48 +117,177 @@ public class BlogEditActivity extends BaseActivity {
   					Toast.makeText(BlogEditActivity.this, "test", Toast.LENGTH_SHORT).show();
   				}
   				else if (position == (imageItem.size() - 1)) {
-  					Toast.makeText(BlogEditActivity.this, "test test", Toast.LENGTH_SHORT).show();
-  					/* 直接打开系统相册
-  					Intent intent = new Intent(Intent.ACTION_PICK,       
-  	                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);  
-  	                startActivityForResult(intent, IMAGE_OPEN);
-  					*/
-  					/*
-  	                Intent intent=new Intent(Intent.ACTION_GET_CONTENT);//ACTION_OPEN_DOCUMENT  
-  					intent.addCategory(Intent.CATEGORY_OPENABLE);  
-  					intent.setType("image/jpeg");
-  	            	startActivityForResult(intent, IMAGE_OPEN);
-  	            	*/
-  	            	ActivityCtrl.getInstance().gotoActivityForResult(activity, 
-  	            									PictureSelectorActivity.class, 
-  	            									PictureSelectorActivity.IMAGE_OPEN);
-  	            	
+  	  				ActivityCtrl.getInstance().gotoActivityForResult(mActivity, AddImgMenuActivity.class, CALL_IMG_MENU);
   				} else {
   					dialog(position);
-  				}
-				
+  				}				
 			}
   		});
         resetImage();
+        
+        
+        /* date */
+        et_date = (EditText) findViewById(R.id.et_date);
+        et_date.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			    imm.hideSoftInputFromWindow(((EditText)v).getWindowToken(),0);
+			    
+				DatePickerCtrl dateTimePicKDialog = new DatePickerCtrl(mActivity, "");
+				dateTimePicKDialog.dateTimePicKDialog(et_date);
+			}
+		});
         /* GPS */
+        //位置监听  
+        locationListener = new LocationListener() {
+            /** 
+             * 位置信息变化时触发 
+             */  
+            public void onLocationChanged(Location location) {  
+                Log.i(TAG, "时间："+location.getTime());   
+                Log.i(TAG, "经度："+location.getLongitude());   
+                Log.i(TAG, "纬度："+location.getLatitude());   
+                Log.i(TAG, "海拔："+location.getAltitude()); 
+                updateGps(location);
+            }  
+            /** 
+             * GPS状态变化时触发 
+             */  
+            public void onStatusChanged(String provider, int status, Bundle extras) {  
+                switch (status) {  
+                //GPS状态为可见时  
+                case LocationProvider.AVAILABLE:  
+                    Log.i(TAG, "当前GPS状态为可见状态");  
+                    break;  
+                //GPS状态为服务区外时  
+                case LocationProvider.OUT_OF_SERVICE:  
+                    Log.i(TAG, "当前GPS状态为服务区外状态");  
+                    break;  
+                //GPS状态为暂停服务时  
+                case LocationProvider.TEMPORARILY_UNAVAILABLE:  
+                    Log.i(TAG, "当前GPS状态为暂停服务状态");  
+                    break;  
+                }  
+            }  
+            /** 
+             * GPS开启时触发 
+             */  
+            public void onProviderEnabled(String provider) {  
+                Location location=lm.getLastKnownLocation(provider);  
+                updateGps(location);
+            }  
+            /** 
+             * GPS禁用时触发 
+             */  
+            public void onProviderDisabled(String provider) {
+            	updateGps(null);
+            }  
+        };  
         et_gps = (EditText) findViewById(R.id.et_gps);
-        registerGPS();
+        et_gps.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			    imm.hideSoftInputFromWindow(((EditText)v).getWindowToken(),0);
+
+//				registerGPS();
+			}
+		});
 	}
 	
+    @Override
+	protected void onResume() {
+		registerGPS();
+		super.onResume();
+	}
+    @Override
+    protected void onPause() {
+    	if (null != lm) {
+    		lm.removeUpdates(locationListener);
+    	}
+    	super.onPause();
+    }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
-        super.onActivityResult(requestCode, resultCode, data);        
-        if(resultCode == RESULT_OK && requestCode == PictureSelectorActivity.IMAGE_OPEN) {
-        	/*
-            Uri uri = data.getData();  
-            pathImage = ScreenTools.getImageAbsolutePath(this, uri);
-            */
-            Bundle bundle = data.getExtras();
-            if (null != bundle) {
-            	String[] uriArray = bundle.getStringArray(PictureSelectorActivity.PICTURE_SELECTOR_RESTULT);
-            	pathImages = uriArray;
-            }
-            resetImage();
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+        	switch (requestCode) {
+        	case CALL_IMG_MENU: {
+        		byte index = data.getByteExtra(AddImgMenuActivity.MENU_SELECTED, (byte) 0);
+        		switch (index) {
+        		case 0:
+        			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//调用android自带的照相机 
+        			Uri photoUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI; 
+        			startActivityForResult(intent, CALL_CAMERA); 
+        			break;
+        		case 1:
+        			openImageSelector();
+        			break;
+        		case 3:
+        			
+        			break;
+        		default: break;
+        		}
+        	} break;
+        	
+        	case CALL_IMG_SELECTOR: {
+        		/*
+	            Uri uri = data.getData();  
+	            pathImage = ScreenTools.getImageAbsolutePath(this, uri);
+        		 */
+        		Bundle bundle = data.getExtras();
+        		if (null != bundle) {
+        			String[] uriArray = bundle.getStringArray(PictureSelectorActivity.PICTURE_SELECTOR_RESTULT);
+        			pathImages = uriArray;
+        		}
+        		resetImage();
+        	} break;
+
+        	case CALL_CAMERA:{
+        		doPhotoFormCamera(data, resultCode);
+        	} break;
+        	
+        	default: break;
+        	}
         }
+    }
+    private void doPhotoFormCamera(Intent data, int resultCode) {
+    	String sdStatus = Environment.getExternalStorageState(); 
+    	if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用 
+    		Log.v("TestFile", "SD card is not avaiable/writeable right now."); 
+    		return; 
+    	} 
+    	Bundle bundle = data.getExtras(); 
+    	Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式 
+    	String str = null; 
+    	Date date = null; 
+    	SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");// 获取当前时间，进一步转化为字符串 
+    	date = new Date(resultCode); 
+    	str = format.format(date);
+    	String fileName = getExternalFilesDir(Environment.DIRECTORY_DCIM).getPath()+ "/" + str + ".jpg"; 
+    	Uri uri = FileUtil.saveImageToGallery(mActivity, str + ".jpg", bitmap);
+    	if (null != uri) {
+    		pathImages = new String[]{uri.getPath()};
+    		resetImage();
+    	} else {
+    		Toast.makeText(this, "很抱歉，保存失败！", Toast.LENGTH_SHORT).show();
+    	}
+    	
+    }
+    private void openImageSelector() {
+			/* 直接打开系统相册
+			Intent intent = new Intent(Intent.ACTION_PICK,       
+                  android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);  
+          startActivityForResult(intent, IMAGE_OPEN);
+			*/
+			/*
+          Intent intent=new Intent(Intent.ACTION_GET_CONTENT);//ACTION_OPEN_DOCUMENT  
+			intent.addCategory(Intent.CATEGORY_OPENABLE);  
+			intent.setType("image/jpeg");
+      	startActivityForResult(intent, IMAGE_OPEN);
+      	*/
+      	ActivityCtrl.getInstance().gotoActivityForResult(mActivity, 
+      									PictureSelectorActivity.class, 
+      									CALL_IMG_SELECTOR);
     }
     
     private void resetLayout() {
@@ -136,11 +296,6 @@ public class BlogEditActivity extends BaseActivity {
     							(getResources().getDimensionPixelSize(R.dimen.add_img_height)) * lineCount);
     }
     
-    @Override
-	protected void onResume() {
-		super.onResume();
-	}
-
     protected void resetImage() {
     	imageItem.clear();
     	imageItem.add(defIcon);
@@ -238,11 +393,10 @@ public class BlogEditActivity extends BaseActivity {
     		et_gps.setText("");
     	}
     }
-    
     public  LocationManager lm;  
     private static final String TAG="GPS Services"; 
     
-    private void registerGPS(){  
+    private void registerGPS() {
         lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);  
         //判断GPS是否正常启动  
         if(!lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {  
@@ -252,15 +406,13 @@ public class BlogEditActivity extends BaseActivity {
             startActivityForResult(intent,0);   
             return;  
         }  
-          
         //为获取地理位置信息时设置查询条件  
         String bestProvider = lm.getBestProvider(getCriteria(), true);  
         //获取位置信息  
         //如果不设置查询要求，getLastKnownLocation方法传人的参数为LocationManager.GPS_PROVIDER  
         Location location= lm.getLastKnownLocation(bestProvider);  
 //        Location location= lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);   
-        updateGps(location);  
-        
+//        updateGps(location);  
         
         //监听状态  
         lm.addGpsStatusListener(listener);  
@@ -277,57 +429,7 @@ public class BlogEditActivity extends BaseActivity {
 //        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, locationListener);  
     }
     
-    //位置监听  
-    private LocationListener locationListener=new LocationListener() {  
-          
-        /** 
-         * 位置信息变化时触发 
-         */  
-        public void onLocationChanged(Location location) {  
-            Log.i(TAG, "时间："+location.getTime());   
-            Log.i(TAG, "经度："+location.getLongitude());   
-            Log.i(TAG, "纬度："+location.getLatitude());   
-            Log.i(TAG, "海拔："+location.getAltitude()); 
-            updateGps(location);
-        }  
-          
-        /** 
-         * GPS状态变化时触发 
-         */  
-        public void onStatusChanged(String provider, int status, Bundle extras) {  
-            switch (status) {  
-            //GPS状态为可见时  
-            case LocationProvider.AVAILABLE:  
-                Log.i(TAG, "当前GPS状态为可见状态");  
-                break;  
-            //GPS状态为服务区外时  
-            case LocationProvider.OUT_OF_SERVICE:  
-                Log.i(TAG, "当前GPS状态为服务区外状态");  
-                break;  
-            //GPS状态为暂停服务时  
-            case LocationProvider.TEMPORARILY_UNAVAILABLE:  
-                Log.i(TAG, "当前GPS状态为暂停服务状态");  
-                break;  
-            }  
-        }  
-      
-        /** 
-         * GPS开启时触发 
-         */  
-        public void onProviderEnabled(String provider) {  
-            Location location=lm.getLastKnownLocation(provider);  
-            updateGps(location);
-        }  
-      
-        /** 
-         * GPS禁用时触发 
-         */  
-        public void onProviderDisabled(String provider) {
-        	updateGps(null);
-        }  
-    };  
-    
-  //状态监听  
+    //状态监听  
     GpsStatus.Listener listener = new GpsStatus.Listener() {  
         public void onGpsStatusChanged(int event) {  
             switch (event) {  
@@ -370,7 +472,7 @@ public class BlogEditActivity extends BaseActivity {
     private Criteria getCriteria(){  
         Criteria criteria=new Criteria();  
         //设置定位精确度 Criteria.ACCURACY_COARSE比较粗略，Criteria.ACCURACY_FINE则比较精细   
-        criteria.setAccuracy(Criteria.ACCURACY_FINE);      
+        criteria.setAccuracy(Criteria.ACCURACY_COARSE);      
         //设置是否要求速度  
         criteria.setSpeedRequired(false);  
         // 设置是否允许运营商收费    
@@ -387,6 +489,5 @@ public class BlogEditActivity extends BaseActivity {
     @Override
 	protected void onDestroy() {
 		super.onDestroy();
-		lm.removeUpdates(locationListener);
 	}
 }

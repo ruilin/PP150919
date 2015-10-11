@@ -5,8 +5,10 @@
     <color name="v4_plaza_bg">#fffffef1</color>
     <color name="common_setting_bg">#ffededf0</color>
     <color name="title_bar_bg_blue">#ff61b6ff</color>
-    <color name="gray">#afaeae</color>
+    <color name="gray">#bbbbbb</color>
+    <color name="gray_1">#dddddd</color>
     <color name="blue">#0000ff</color>
     <color name="title_bg">#277ae0</color>
     <color name="black">#000</color>
+    <color name="orange">#ff9911</color>
 </resources>

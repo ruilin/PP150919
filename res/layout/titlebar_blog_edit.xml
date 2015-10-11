@@ -25,14 +25,18 @@
             android:background="#00000000"
             android:src="@drawable/menu" />
 
-        <ImageButton
+        <TextView
             android:id="@+id/title_right"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="14dp"
+            android:gravity="center"
             android:layout_centerVertical="true"
             android:background="#00000000"
-            android:src="@drawable/plus_w" />
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:text="@string/blog_title_right" />
+
 
 </RelativeLayout>
