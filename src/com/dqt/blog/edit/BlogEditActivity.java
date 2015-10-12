@@ -61,7 +61,7 @@ public class BlogEditActivity extends BaseActivity {
 	private HashMap<String, Object> defIcon;
 	private EditText et_date;
 	private EditText et_gps;
-	private LocationListener locationListener;
+	private LocationListener GPSListener;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -128,31 +128,28 @@ public class BlogEditActivity extends BaseActivity {
         
         /* date */
         et_date = (EditText) findViewById(R.id.et_date);
+        et_date.setFocusable(false);
         et_date.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-			    imm.hideSoftInputFromWindow(((EditText)v).getWindowToken(),0);
-			    
 				DatePickerCtrl dateTimePicKDialog = new DatePickerCtrl(mActivity, "");
 				dateTimePicKDialog.dateTimePicKDialog(et_date);
 			}
 		});
         /* GPS */
         //位置监听  
-        locationListener = new LocationListener() {
-            /** 
-             * 位置信息变化时触发 
-             */  
+        GPSListener = new LocationListener() {
+            /* 位置信息变化时触发 */  
             public void onLocationChanged(Location location) {  
                 Log.i(TAG, "时间："+location.getTime());   
                 Log.i(TAG, "经度："+location.getLongitude());   
                 Log.i(TAG, "纬度："+location.getLatitude());   
                 Log.i(TAG, "海拔："+location.getAltitude()); 
                 updateGps(location);
+            	if (null != lm) {
+            		lm.removeUpdates(GPSListener);
+            	}
             }  
-            /** 
-             * GPS状态变化时触发 
-             */  
+            /* GPS状态变化时触发 */  
             public void onStatusChanged(String provider, int status, Bundle extras) {  
                 switch (status) {  
                 //GPS状态为可见时  
@@ -169,42 +166,32 @@ public class BlogEditActivity extends BaseActivity {
                     break;  
                 }  
             }  
-            /** 
-             * GPS开启时触发 
-             */  
+            /* GPS开启时触发 */  
             public void onProviderEnabled(String provider) {  
                 Location location=lm.getLastKnownLocation(provider);  
                 updateGps(location);
             }  
-            /** 
-             * GPS禁用时触发 
-             */  
+            /* GPS禁用时触发 */  
             public void onProviderDisabled(String provider) {
             	updateGps(null);
             }  
         };  
         et_gps = (EditText) findViewById(R.id.et_gps);
+        et_gps.setFocusable(false);
         et_gps.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-			    imm.hideSoftInputFromWindow(((EditText)v).getWindowToken(),0);
-
-//				registerGPS();
+				registerGPS();
 			}
 		});
 	}
 	
     @Override
 	protected void onResume() {
-		registerGPS();
 		super.onResume();
 	}
     @Override
     protected void onPause() {
-    	if (null != lm) {
-    		lm.removeUpdates(locationListener);
-    	}
     	super.onPause();
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
@@ -411,8 +398,7 @@ public class BlogEditActivity extends BaseActivity {
         //获取位置信息  
         //如果不设置查询要求，getLastKnownLocation方法传人的参数为LocationManager.GPS_PROVIDER  
         Location location= lm.getLastKnownLocation(bestProvider);  
-//        Location location= lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);   
-//        updateGps(location);  
+        updateGps(location);  
         
         //监听状态  
         lm.addGpsStatusListener(listener);  
@@ -423,10 +409,13 @@ public class BlogEditActivity extends BaseActivity {
         //参数4，监听      
         //备注：参数2和3，如果参数3不为0，则以参数3为准；参数3为0，则通过时间来定时更新；两者为0，则随时刷新     
           
-        // 1秒更新一次，或最小位移变化超过1米更新一次；  
+        // 3秒更新一次，或最小位移变化超过1米更新一次；  
         //注意：此处更新准确度非常低，推荐在service里面启动一个Thread，在run中sleep(10000);然后执行handler.sendMessage(),更新位置  
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, locationListener);  
-//        lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, locationListener);  
+        lm.requestLocationUpdates(bestProvider, 3000, 1, GPSListener);
+        /*
+        LocationManager.GPS_PROVIDER
+        LocationManager.NETWORK_PROVIDER
+        */
     }
     
     //状态监听  
@@ -488,6 +477,9 @@ public class BlogEditActivity extends BaseActivity {
     
     @Override
 	protected void onDestroy() {
+    	if (null != lm) {
+    		lm.removeUpdates(GPSListener);
+    	}
 		super.onDestroy();
 	}
 }

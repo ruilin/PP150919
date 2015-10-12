@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
   >
-<LinearLayout 
-    android:id="@+id/pop_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:layout_alignParentBottom="true"
-    android:background="@color/gray_1"
-     >
-    <Button
-        android:id="@+id/btn_take_photo"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_marginTop="20dip"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:textSize="20dp"
-        android:text="@string/blog_menu_1"
-        android:background="@color/white"
-        android:textStyle="bold"
-         />
-    <Button
-        android:id="@+id/btn_pick_photo"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_marginTop="20dip" 
-         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:textSize="20dp"
-        android:text="@string/blog_menu_2"
-         android:background="@color/white"
-         android:textStyle="bold"
-         />
-    <Button
-        android:id="@+id/btn_cancel"
-       android:layout_marginLeft="20dip"
-       android:layout_marginRight="20dip"
-       android:layout_marginTop="20dip" 
-	   android:layout_marginBottom="20dip"
-       android:layout_width="fill_parent"
-       android:layout_height="50dp"
-       android:textSize="20dp"
-       android:text="@string/blog_menu_3"
-       android:background="@color/orange"
-       android:textColor="#ffffff"
-       android:textStyle="bold"
-        />
-</LinearLayout>
+	<LinearLayout 
+	    android:id="@+id/pop_layout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:layout_alignParentBottom="true"
+	    android:background="@color/gray_1"
+	     >
+	    <Button
+	        android:id="@+id/btn_take_photo"
+	        android:layout_marginLeft="20dip"
+	        android:layout_marginRight="20dip"
+	        android:layout_marginTop="20dip"
+	        android:layout_width="fill_parent"
+	        android:layout_height="50dp"
+	        android:textSize="20dp"
+	        android:text="@string/blog_menu_1"
+	        android:background="@color/white"
+	        android:textStyle="bold"
+	         />
+	    <Button
+	        android:id="@+id/btn_pick_photo"
+	        android:layout_marginLeft="20dip"
+	        android:layout_marginRight="20dip"
+	        android:layout_marginTop="20dip" 
+	         android:layout_width="fill_parent"
+	        android:layout_height="50dp"
+	        android:textSize="20dp"
+	        android:text="@string/blog_menu_2"
+	         android:background="@color/white"
+	         android:textStyle="bold"
+	         />
+	    <Button
+	        android:id="@+id/btn_cancel"
+	       android:layout_marginLeft="20dip"
+	       android:layout_marginRight="20dip"
+	       android:layout_marginTop="20dip" 
+		   android:layout_marginBottom="20dip"
+	       android:layout_width="fill_parent"
+	       android:layout_height="50dp"
+	       android:textSize="20dp"
+	       android:text="@string/blog_menu_3"
+	       android:background="@color/orange"
+	       android:textColor="@color/white"
+	       android:textStyle="bold"
+	        />
+	</LinearLayout>
 </RelativeLayout>
