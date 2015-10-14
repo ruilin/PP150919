@@ -171,20 +171,21 @@ public final class R {
         public static final int friend_item=0x7f030007;
         public static final int friend_list=0x7f030008;
         public static final int friend_main=0x7f030009;
-        public static final int main_bar_item=0x7f03000a;
-        public static final int pic_selector_grid_item=0x7f03000b;
-        public static final int pic_selector_list_dir=0x7f03000c;
-        public static final int pic_selector_list_dir_item=0x7f03000d;
-        public static final int pic_selector_main=0x7f03000e;
-        public static final int pic_selector_titlebar=0x7f03000f;
-        public static final int picture_view=0x7f030010;
-        public static final int picture_view_activity=0x7f030011;
-        public static final int pull_to_refresh=0x7f030012;
-        public static final int splash=0x7f030013;
-        public static final int test=0x7f030014;
-        public static final int titlebar_blog=0x7f030015;
-        public static final int titlebar_blog_edit=0x7f030016;
-        public static final int titlebar_friend=0x7f030017;
+        public static final int login_main=0x7f03000a;
+        public static final int main_bar_item=0x7f03000b;
+        public static final int pic_selector_grid_item=0x7f03000c;
+        public static final int pic_selector_list_dir=0x7f03000d;
+        public static final int pic_selector_list_dir_item=0x7f03000e;
+        public static final int pic_selector_main=0x7f03000f;
+        public static final int pic_selector_titlebar=0x7f030010;
+        public static final int picture_view=0x7f030011;
+        public static final int picture_view_activity=0x7f030012;
+        public static final int pull_to_refresh=0x7f030013;
+        public static final int splash=0x7f030014;
+        public static final int test=0x7f030015;
+        public static final int titlebar_blog=0x7f030016;
+        public static final int titlebar_blog_edit=0x7f030017;
+        public static final int titlebar_friend=0x7f030018;
     }
     public static final class menu {
         public static final int main=0x7f090000;
