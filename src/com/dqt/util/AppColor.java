@@ -1,8 +1,8 @@
 package com.dqt.util;
 
-import android.content.res.Resources;
+import com.dqt.app.R;
 
-import com.sunday.app.R;
+import android.content.res.Resources;
 
 public class AppColor {
 	public static int title_bar_bg_blue;

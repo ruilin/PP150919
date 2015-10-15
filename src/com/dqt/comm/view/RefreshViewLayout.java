@@ -1,5 +1,7 @@
 package com.dqt.comm.view;
 
+import com.dqt.app.R;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -14,9 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.dqt.util.AppDebug;
-import com.sunday.app.R;
 
 public class RefreshViewLayout extends LinearLayout implements OnTouchListener {
 	/**

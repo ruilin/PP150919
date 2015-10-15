@@ -4,17 +4,17 @@ import com.dqt.util.AppColor;
 
 import android.app.Application;
 
-public class SunnyDayApp extends Application {
+public class DqtApp extends Application {
 	
-	private static SunnyDayApp app;
+	private static DqtApp app;
 	
-	public SunnyDayApp() {
+	public DqtApp() {
 		app = this;
 	}
 	
-	public static SunnyDayApp getInstance() {
+	public static DqtApp getInstance() {
 		if (null == app) 
-			app = new SunnyDayApp();
+			app = new DqtApp();
 		return app;
 	}
 

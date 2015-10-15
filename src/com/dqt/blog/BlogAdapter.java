@@ -3,6 +3,10 @@ package com.dqt.blog;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dqt.app.R;
+import com.dqt.comm.view.NineGridLayout;
+import com.dqt.comm.view.ScreenTools;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.view.LayoutInflater;
@@ -11,10 +15,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.dqt.comm.view.NineGridLayout;
-import com.dqt.comm.view.ScreenTools;
-import com.sunday.app.R;
 
 public class BlogAdapter extends BaseAdapter {
 

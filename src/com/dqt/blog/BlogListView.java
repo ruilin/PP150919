@@ -3,19 +3,14 @@ package com.dqt.blog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
+
+import com.dqt.app.R;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.widget.AbsListView;
 import android.widget.ListView;
-
-import com.dqt.comm.view.ScreenTools;
-import com.sunday.app.R;
 
 public class BlogListView extends ListView {
 	Timer timer;

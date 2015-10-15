@@ -3,8 +3,8 @@ package com.dqt.comm.imageselector;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.dqt.app.R;
 import com.dqt.comm.utils.CommonAdapter;
-import com.sunday.app.R;
 
 import android.content.Context;
 import android.graphics.Color;

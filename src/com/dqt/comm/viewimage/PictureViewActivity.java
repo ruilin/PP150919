@@ -1,6 +1,6 @@
 package com.dqt.comm.viewimage;
 
-import com.sunday.app.R;
+import com.dqt.app.R;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

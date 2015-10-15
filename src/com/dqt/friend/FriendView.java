@@ -1,13 +1,10 @@
 package com.dqt.friend;
 
-import android.view.MotionEvent;
+import com.dqt.app.MainActivity;
+import com.dqt.app.R;
+
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ScrollView;
-
-import com.dqt.app.MainActivity;
-import com.sunday.app.R;
 
 public class FriendView extends LinearLayout {
 	private View layout;

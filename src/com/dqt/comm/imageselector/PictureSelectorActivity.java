@@ -8,8 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 
 import com.dqt.app.BaseActivity;
+import com.dqt.app.R;
 import com.dqt.comm.imageselector.ListImageDirPopupWindow.OnImageDirSelected;
-import com.sunday.app.R;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -21,7 +21,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;

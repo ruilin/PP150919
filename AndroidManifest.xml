@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sunday.app"
+    package="com.dqt.app"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -30,20 +30,20 @@
 	<uses-permission android:name="android.permission.INTERNET"/>
 	
     <application
-        android:name="com.dqt.app.SunnyDayApp"
+        android:name="com.dqt.app.DqtApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
     	android:theme="@style/AppTheme"  
         android:label="@string/app_name" >
         <activity
-            android:name="com.dqt.app.MainActivity"
+            android:name="com.dqt.app.login.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.dqt.app.MainActivity"></activity>
         <activity android:name="com.dqt.blog.edit.BlogEditActivity"></activity>
         <activity android:name="com.dqt.blog.edit.AddImgMenuActivity" android:theme="@style/MyDialogStyleBottom" /> 
         <activity android:name="com.dqt.comm.viewimage.PictureViewActivity"></activity>

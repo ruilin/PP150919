@@ -1,11 +1,11 @@
 package com.dqt.blog;
 
 import com.dqt.app.MainActivity;
+import com.dqt.app.R;
 import com.dqt.blog.edit.BlogEditActivity;
 import com.dqt.comm.view.RefreshViewLayout;
 import com.dqt.comm.view.RefreshViewLayout.PullToRefreshListener;
 import com.dqt.ctrl.ActivityCtrl;
-import com.sunday.app.R;
 
 import android.util.AttributeSet;
 import android.view.View;

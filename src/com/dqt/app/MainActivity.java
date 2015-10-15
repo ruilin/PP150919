@@ -4,7 +4,6 @@ import com.dqt.blog.BlogView;
 import com.dqt.friend.FriendView;
 import com.dqt.util.AppColor;
 import com.dqt.util.AppDebug;
-import com.sunday.app.R;
 
 import android.graphics.Color;
 import android.os.Bundle;

@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import com.dqt.app.BaseActivity;
+import com.dqt.app.R;
 import com.dqt.comm.calendar.DatePickerCtrl;
 import com.dqt.comm.imageselector.PictureSelectorActivity;
 import com.dqt.comm.utils.FileUtil;
 import com.dqt.comm.view.ScreenTools;
 import com.dqt.ctrl.ActivityCtrl;
-import com.sunday.app.R;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -37,7 +37,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;

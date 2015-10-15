@@ -3,7 +3,7 @@ package com.dqt.comm.calendar;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.sunday.app.R;
+import com.dqt.app.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;

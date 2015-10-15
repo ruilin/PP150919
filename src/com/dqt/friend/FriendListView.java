@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.dqt.app.R;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-
-import com.sunday.app.R;
 
 public class FriendListView extends ListView {
 	

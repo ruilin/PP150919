@@ -1,6 +1,6 @@
 package com.dqt.ctrl;
 
-import com.dqt.app.SunnyDayApp;
+import com.dqt.app.DqtApp;
 import com.dqt.comm.imageselector.PictureSelectorActivity;
 
 import android.app.Activity;
@@ -30,7 +30,7 @@ public class ActivityCtrl {
 	}
 	
 	public String getRunningActivityName() {
-        ActivityManager activityManager = (ActivityManager) SunnyDayApp.getInstance().getSystemService(Context.ACTIVITY_SERVICE);  
+        ActivityManager activityManager = (ActivityManager) DqtApp.getInstance().getSystemService(Context.ACTIVITY_SERVICE);  
         String runningActivity = activityManager.getRunningTasks(1).get(0).topActivity.getClassName();  
         return runningActivity; 
 	}

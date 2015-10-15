@@ -3,7 +3,7 @@ package com.dqt.comm.view;
 import java.util.List;
 
 import com.dqt.app.MainActivity;
-import com.dqt.app.SunnyDayApp;
+import com.dqt.app.DqtApp;
 import com.dqt.comm.viewimage.PictureViewActivity;
 import com.dqt.ctrl.ActivityCtrl;
 import com.dqt.util.AppDebug;
@@ -54,7 +54,7 @@ public class NineGridLayout extends ViewGroup {
     private void layoutChildrenView(int w, int h) {
     	totalWidth = w;
     	if (null == context) 
-    		context = SunnyDayApp.getInstance().getApplicationContext();
+    		context = DqtApp.getInstance().getApplicationContext();
     	imgWidth = totalWidth / 3 - gap;
     	
     	int childrenCount = listData.size();

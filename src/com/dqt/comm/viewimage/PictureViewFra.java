@@ -2,13 +2,12 @@ package com.dqt.comm.viewimage;
 
 import java.util.List;
 
-import com.sunday.app.R;
+import com.dqt.app.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class PictureViewFra extends Fragment implements

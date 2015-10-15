@@ -2,10 +2,10 @@ package com.dqt.comm.imageselector;
 
 import java.util.List;
 
+import com.dqt.app.R;
 import com.dqt.comm.utils.BasePopupWindowForListView;
 import com.dqt.comm.utils.CommonAdapter;
 import com.dqt.comm.utils.ViewHolder;
-import com.sunday.app.R;
 
 import android.view.View;
 import android.widget.AdapterView;

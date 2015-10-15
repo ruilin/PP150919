@@ -1,6 +1,6 @@
 package com.dqt.blog.edit;
 
-import com.sunday.app.R;
+import com.dqt.app.R;
 
 import android.app.Activity;
 import android.content.Intent;
