@@ -202,7 +202,6 @@ public class BlogEditActivity extends BaseActivity {
         		switch (index) {
         		case 0:
         			Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//调用android自带的照相机 
-        			Uri photoUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI; 
         			startActivityForResult(intent, CALL_CAMERA); 
         			break;
         		case 1:
@@ -238,12 +237,12 @@ public class BlogEditActivity extends BaseActivity {
     }
     private void doPhotoFormCamera(Intent data, int resultCode) {
     	String sdStatus = Environment.getExternalStorageState(); 
-    	if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { // 检测sd是否可用 
+    	if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) { 				// 检测sd是否可用 
     		Log.v("TestFile", "SD card is not avaiable/writeable right now."); 
     		return; 
     	} 
     	Bundle bundle = data.getExtras(); 
-    	Bitmap bitmap = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式 
+    	Bitmap bitmap = (Bitmap) bundle.get("data");					// 获取相机返回的数据，并转换为Bitmap图片格式 
     	String str = null; 
     	Date date = null; 
     	SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");// 获取当前时间，进一步转化为字符串 

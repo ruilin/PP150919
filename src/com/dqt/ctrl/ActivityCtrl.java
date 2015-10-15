@@ -1,12 +1,15 @@
 package com.dqt.ctrl;
 
+import java.io.File;
+
 import com.dqt.app.DqtApp;
-import com.dqt.comm.imageselector.PictureSelectorActivity;
+import com.dqt.util.AppDebug;
 
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 
 public class ActivityCtrl {
 	private static ActivityCtrl instance = new ActivityCtrl();
@@ -33,5 +36,12 @@ public class ActivityCtrl {
         ActivityManager activityManager = (ActivityManager) DqtApp.getInstance().getSystemService(Context.ACTIVITY_SERVICE);  
         String runningActivity = activityManager.getRunningTasks(1).get(0).topActivity.getClassName();  
         return runningActivity; 
+	}
+	
+	public void gotoImageBrower(Context ctx, Uri uri) {
+		AppDebug.logd(uri.getPath());
+		Intent it =new Intent(Intent.ACTION_VIEW);
+		it.setDataAndType(uri, "image/*");
+		ctx.startActivity(it);
 	}
 }

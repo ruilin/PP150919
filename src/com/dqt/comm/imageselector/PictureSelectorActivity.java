@@ -86,7 +86,7 @@ public class PictureSelectorActivity extends BaseActivity implements OnImageDirS
 	 */
 	private void data2View() {
 		if (mImgDir == null) {
-			Toast.makeText(getApplicationContext(), "没有图片", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "没有图片", Toast.LENGTH_SHORT).show();
 			return;
 		}
 
@@ -94,10 +94,10 @@ public class PictureSelectorActivity extends BaseActivity implements OnImageDirS
 		/**
 		 * 可以看到文件夹的路径和图片的路径分开保存，极大的减少了内存的消耗；
 		 */
-		mAdapter = new PictureSelectorAdapter(getApplicationContext(), mImgs, R.layout.pic_selector_grid_item,
+		mAdapter = new PictureSelectorAdapter(this, mImgs, R.layout.pic_selector_grid_item,
 				mImgDir.getAbsolutePath());
 		mGirdView.setAdapter(mAdapter);
-		mImageCount.setText(totalCount + "张");
+		mImageCount.setText("" + totalCount);	//数量
 	};
 
 	/**
@@ -106,7 +106,7 @@ public class PictureSelectorActivity extends BaseActivity implements OnImageDirS
 	private void initListDirPopupWindw() {
 		mListImageDirPopupWindow = new ListImageDirPopupWindow(LayoutParams.MATCH_PARENT, (int) (mScreenHeight * 0.7),
 				mImageFloders,
-				LayoutInflater.from(getApplicationContext()).inflate(R.layout.pic_selector_list_dir, null));
+				LayoutInflater.from(this).inflate(R.layout.pic_selector_list_dir, null));
 
 		mListImageDirPopupWindow.setOnDismissListener(new OnDismissListener() {
 			@Override
@@ -276,7 +276,7 @@ public class PictureSelectorActivity extends BaseActivity implements OnImageDirS
 		/**
 		 * 可以看到文件夹的路径和图片的路径分开保存，极大的减少了内存的消耗；
 		 */
-		mAdapter = new PictureSelectorAdapter(getApplicationContext(), mImgs, R.layout.pic_selector_grid_item,
+		mAdapter = new PictureSelectorAdapter(this, mImgs, R.layout.pic_selector_grid_item,
 				mImgDir.getAbsolutePath());
 		mGirdView.setAdapter(mAdapter);
 		// mAdapter.notifyDataSetChanged();
