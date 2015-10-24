@@ -1,7 +1,10 @@
-package com.dqt.comm.utils;
+package com.dqt.comm.imageselector;
 
 import java.util.List;
 
+import com.dqt.app.BaseActivity;
+
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.MotionEvent;
@@ -15,31 +18,32 @@ public abstract class BasePopupWindowForListView<T> extends PopupWindow
 	 * 布局文件的最外层View
 	 */
 	protected View mContentView;
-	protected Context context;
+	protected BaseActivity mActivity;
 	/**
 	 * ListView的数据集
 	 */
 	protected List<T> mDatas;
 
-	public BasePopupWindowForListView(View contentView, int width, int height,
+	public BasePopupWindowForListView(BaseActivity act, View contentView, int width, int height,
 			boolean focusable)
 	{
-		this(contentView, width, height, focusable, null);
+		this(act, contentView, width, height, focusable, null);
+		mActivity = act;
 	}
 
-	public BasePopupWindowForListView(View contentView, int width, int height,
+	public BasePopupWindowForListView(BaseActivity act, View contentView, int width, int height,
 			boolean focusable, List<T> mDatas)
 	{
-		this(contentView, width, height, focusable, mDatas, new Object[0]);
-
+		this(act, contentView, width, height, focusable, mDatas, new Object[0]);
+		mActivity = act;
 	}
 
-	public BasePopupWindowForListView(View contentView, int width, int height,
+	public BasePopupWindowForListView(BaseActivity act, View contentView, int width, int height,
 			boolean focusable, List<T> mDatas, Object... params)
 	{
 		super(contentView, width, height, focusable);
 		this.mContentView = contentView;
-		context = contentView.getContext();
+		this.mActivity = act;
 		if (mDatas != null)
 			this.mDatas = mDatas;
 

@@ -2,10 +2,8 @@ package com.dqt.comm.imageselector;
 
 import java.util.List;
 
+import com.dqt.app.BaseActivity;
 import com.dqt.app.R;
-import com.dqt.comm.utils.BasePopupWindowForListView;
-import com.dqt.comm.utils.CommonAdapter;
-import com.dqt.comm.utils.ViewHolder;
 
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,17 +14,16 @@ public class ListImageDirPopupWindow extends BasePopupWindowForListView<ImageFlo
 {
 	private ListView mListDir;
 
-	public ListImageDirPopupWindow(int width, int height,
-			List<ImageFloder> datas, View convertView)
-	{
-		super(convertView, width, height, true, datas);
+	public ListImageDirPopupWindow(BaseActivity act, int width, int height,
+			List<ImageFloder> datas, View convertView) {
+		super(act, convertView, width, height, true, datas);
 	}
 
 	@Override
 	public void initViews()
 	{
 		mListDir = (ListView) findViewById(R.id.id_list_dir);
-		mListDir.setAdapter(new CommonAdapter<ImageFloder>(context, mDatas,
+		mListDir.setAdapter(new CommonAdapter<ImageFloder>(mActivity, mDatas,
 				R.layout.pic_selector_list_dir_item)
 		{
 			@Override

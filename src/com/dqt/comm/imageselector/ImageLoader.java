@@ -1,10 +1,12 @@
-package com.dqt.comm.utils;
+package com.dqt.comm.imageselector;
 
 import java.lang.reflect.Field;
 import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+
+import com.dqt.util.AppDebug;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -139,7 +141,7 @@ public class ImageLoader
 			@Override
 			protected int sizeOf(String key, Bitmap value)
 			{
-				return value.getRowBytes() * value.getHeight();
+				return value.getByteCount();
 			};
 		};
 

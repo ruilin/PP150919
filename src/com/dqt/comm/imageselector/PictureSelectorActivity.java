@@ -104,7 +104,7 @@ public class PictureSelectorActivity extends BaseActivity implements OnImageDirS
 	 * 初始化展示文件夹的popupWindw
 	 */
 	private void initListDirPopupWindw() {
-		mListImageDirPopupWindow = new ListImageDirPopupWindow(LayoutParams.MATCH_PARENT, (int) (mScreenHeight * 0.7),
+		mListImageDirPopupWindow = new ListImageDirPopupWindow(this, LayoutParams.MATCH_PARENT, (int) (mScreenHeight * 0.7),
 				mImageFloders,
 				LayoutInflater.from(this).inflate(R.layout.pic_selector_list_dir, null));
 

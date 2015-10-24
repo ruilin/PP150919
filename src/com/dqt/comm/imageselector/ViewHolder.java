@@ -1,6 +1,6 @@
-package com.dqt.comm.utils;
+package com.dqt.comm.imageselector;
 
-import com.dqt.comm.utils.ImageLoader.Type;
+import com.dqt.comm.imageselector.ImageLoader.Type;
 
 import android.content.Context;
 import android.graphics.Bitmap;

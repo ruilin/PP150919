@@ -1,15 +1,14 @@
 package com.dqt.comm.imageselector;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.dqt.app.BaseActivity;
 import com.dqt.app.R;
-import com.dqt.comm.utils.CommonAdapter;
-import com.dqt.ctrl.ActivityCtrl;
+import com.dqt.ctrl.ImageCtrl;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -20,20 +19,26 @@ public class PictureSelectorAdapter extends CommonAdapter<String> {
 	 * 用户选择的图片，存储为图片的完整路径
 	 */
 	public static List<String> mSelectedImage = new LinkedList<String>();
-
+	private ArrayList<String> mAllImage;
 	/**
 	 * 文件夹路径
 	 */
 	private String mDirPath;
 
-	public PictureSelectorAdapter(Context context, List<String> mDatas, int itemLayoutId,
+	public PictureSelectorAdapter(BaseActivity act, List<String> mDatas, int itemLayoutId,
 			String dirPath) {
-		super(context, mDatas, itemLayoutId);
+		super(act, mDatas, itemLayoutId);
 		this.mDirPath = dirPath;
+		/* 存储完整路径 */
+		int size = mDatas.size();
+		mAllImage = new ArrayList<String>(size);
+		for (int i = 0;i < size; i++) {
+			mAllImage.add(i, "file://" + mDirPath + "/" + mDatas.get(i));
+		}
 	}
 
 	@Override
-	public void convert(final com.dqt.comm.utils.ViewHolder helper, final String item) {
+	public void convert(final com.dqt.comm.imageselector.ViewHolder helper, final String item) {
 		//设置no_pic
 		helper.setImageResource(R.id.id_item_image, R.drawable.pic_selector_no);
 		//设置no_selected
@@ -46,7 +51,7 @@ public class PictureSelectorAdapter extends CommonAdapter<String> {
 		final ImageView mSelect = helper.getView(R.id.id_item_select);
 		mSelect.setOnClickListener(new OnClickListener() {
 			// 点击选中图标
-			//选择，则将图片变暗，反之则反之
+			// 选择，则将图片变暗，反之则反之
 			@Override
 			public void onClick(View v) {
 				// 已经选择过该图片
@@ -65,10 +70,11 @@ public class PictureSelectorAdapter extends CommonAdapter<String> {
 		});
 		mImageView.setColorFilter(null);
 		mImageView.setOnClickListener(new OnClickListener() {
-			//设置ImageView的点击事件
+			// 设置ImageView的点击事件
 			@Override
 			public void onClick(View v) {
-				ActivityCtrl.getInstance().gotoImageBrower(mContext, Uri.parse("file://" + mDirPath + "/" + item));
+//				ActivityCtrl.getInstance().gotoImageBrower(mContext, Uri.parse("file://" + mDirPath + "/" + item));
+				ImageCtrl.getInstance().gotoImageBrowser(mActivity, mAllImage, helper.getPosition());
 			}
 		});
 		

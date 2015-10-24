@@ -93,15 +93,14 @@ public class BlogEditActivity extends BaseActivity {
 //        imageItem.add(defIcon);
         simpleAdapter = new SimpleAdapter(this, 
         		imageItem, R.layout.blog_edit_addimg, 
-                new String[] { "itemImage"}, new int[] { R.id.imageView1}); 
-        simpleAdapter.setViewBinder(new ViewBinder() {  
+                new String[] { "itemImage" }, new int[] { R.id.imageView1 });
+        simpleAdapter.setViewBinder(new ViewBinder() {
 		    @Override  
 		    public boolean setViewValue(View view, Object data,  
 		            String textRepresentation) {  
-		        // TODO Auto-generated method stub  
-		        if(view instanceof ImageView && data instanceof Bitmap){  
+		        if (view instanceof ImageView && data instanceof Bitmap) {
 		            ImageView i = (ImageView)view;  
-		            i.setImageBitmap((Bitmap) data);  
+		            i.setImageBitmap((Bitmap)data);  
 		            return true;  
 		        }  
 		        return false;  
@@ -138,7 +137,7 @@ public class BlogEditActivity extends BaseActivity {
         //位置监听  
         GPSListener = new LocationListener() {
             /* 位置信息变化时触发 */  
-            public void onLocationChanged(Location location) {  
+            public void onLocationChanged(Location location) {
                 Log.i(TAG, "时间："+location.getTime());   
                 Log.i(TAG, "经度："+location.getLongitude());   
                 Log.i(TAG, "纬度："+location.getLatitude());   

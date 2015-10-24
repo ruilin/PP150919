@@ -1,8 +1,9 @@
-package com.dqt.comm.utils;
+package com.dqt.comm.imageselector;
 
 import java.util.List;
 
-import android.content.Context;
+import com.dqt.app.BaseActivity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +12,14 @@ import android.widget.BaseAdapter;
 public abstract class CommonAdapter<T> extends BaseAdapter
 {
 	protected LayoutInflater mInflater;
-	protected Context mContext;
+	protected BaseActivity mActivity;
 	protected List<T> mDatas;
 	protected final int mItemLayoutId;
 
-	public CommonAdapter(Context context, List<T> mDatas, int itemLayoutId)
+	public CommonAdapter(BaseActivity act, List<T> mDatas, int itemLayoutId)
 	{
-		this.mContext = context;
-		this.mInflater = LayoutInflater.from(mContext);
+		this.mActivity = act;
+		this.mInflater = LayoutInflater.from(mActivity);
 		this.mDatas = mDatas;
 		this.mItemLayoutId = itemLayoutId;
 	}
@@ -56,7 +57,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter
 	private ViewHolder getViewHolder(int position, View convertView,
 			ViewGroup parent)
 	{
-		return ViewHolder.get(mContext, convertView, parent, mItemLayoutId,
+		return ViewHolder.get(mActivity, convertView, parent, mItemLayoutId,
 				position);
 	}
 
