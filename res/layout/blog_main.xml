@@ -7,10 +7,10 @@
         android:id="@+id/blog_title"
         />
 
-    <com.dqt.comm.view.RefreshViewLayout
+    <com.dqt.v.comm.RefreshViewLayout
         android:id="@+id/blog_refreshView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    </com.dqt.comm.view.RefreshViewLayout>
+    </com.dqt.v.comm.RefreshViewLayout>
 
 </LinearLayout>

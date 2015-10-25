@@ -58,12 +58,12 @@
         android:textColor="@color/black"
         android:text="今天来到时候草原还是绿的，今年秋天来得晚！今天来到时候草原还是绿的，今年秋天来得晚！" />
 
-    <com.dqt.comm.view.NineGridLayout
+    <com.dqt.v.comm.NineGridLayout
         android:id="@+id/diary_ninegrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="6dp">
-    </com.dqt.comm.view.NineGridLayout>
+    </com.dqt.v.comm.NineGridLayout>
 
 </LinearLayout>

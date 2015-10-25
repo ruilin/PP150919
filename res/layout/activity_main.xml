@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white"
-    tools:context="com.dqt.app.MainActivity" >
+    tools:context="com.dqt.c.main.MainActivity" >
 
     <LinearLayout
         android:id="@+id/main_container"

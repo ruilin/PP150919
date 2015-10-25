@@ -36,18 +36,18 @@
     	android:theme="@style/AppTheme"  
         android:label="@string/app_name" >
         <activity
-            android:name="com.dqt.app.login.LoginActivity_"
+            android:name="com.dqt.c.login.LoginActivity_"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.dqt.app.MainActivity"></activity>
-        <activity android:name="com.dqt.blog.edit.BlogEditActivity"></activity>
-        <activity android:name="com.dqt.blog.edit.AddImgMenuActivity" android:theme="@style/MyDialogStyleBottom" /> 
-        <activity android:name="com.dqt.comm.viewimage.PictureViewActivity"></activity>
-		<activity android:name="com.dqt.comm.imageselector.PictureSelectorActivity"></activity>
+        <activity android:name="com.dqt.c.main.MainActivity"></activity>
+        <activity android:name="com.dqt.c.blog.edit.BlogEditActivity"></activity>
+        <activity android:name="com.dqt.c.blog.edit.AddImgMenuActivity" android:theme="@style/MyDialogStyleBottom" /> 
+        <activity android:name="com.dqt.c.comm.viewimage.PictureViewActivity"></activity>
+		<activity android:name="com.dqt.c.comm.imageselector.PictureSelectorActivity"></activity>
     </application>
 
 </manifest>
