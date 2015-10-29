@@ -2,6 +2,8 @@ package com.dqt.m.blog;
 
 import java.util.ArrayList;
 
+import android.content.ContentValues;
+
 public class Blog {
 	public final static String KEY_ID = "id";
 	public final static String KEY_TITLE = "title";
@@ -79,5 +81,15 @@ public class Blog {
 	public void setImageUri(ArrayList<String> imageUri) {
 		this.imageUri = imageUri;
 	}
-
+	public ContentValues getContentValues() {
+		ContentValues cv = new ContentValues();
+		cv.put(Blog.KEY_TITLE, getTitle());
+		cv.put(Blog.KEY_CONTENT, getContent());
+		cv.put(Blog.KEY_DATE, getDate());
+		cv.put(Blog.KEY_SCENERY, getScenery());
+		cv.put(Blog.KEY_ZONE, getZone());
+		cv.put(Blog.KEY_GPS, getGps());
+		cv.put(Blog.KEY_ACCOUNT, getAccount());
+		return cv;
+	}
 }

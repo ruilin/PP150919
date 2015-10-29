@@ -47,9 +47,7 @@ public class BlogDb extends SQLiteOpenHelper {
 	
 	public long insert(Blog blog) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		ContentValues cv = new ContentValues();
-		cv.put(Blog.KEY_TITLE, blog.getTitle());
-		long row = db.insert(TABLE_NAME, null, cv);
+		long row = db.insert(TABLE_NAME, null, blog.getContentValues());
 		return row;
 	}
 	
@@ -65,9 +63,6 @@ public class BlogDb extends SQLiteOpenHelper {
 		String where = Blog.KEY_ID + " = ?";
 		String[] whereValue = { Integer.toString(blog.getId()) };
 		
-		ContentValues cv = new ContentValues();
-		cv.put(Blog.KEY_ID, blog.getId());
-		cv.put(Blog.KEY_TITLE, blog.getTitle());
-		db.update(TABLE_NAME, cv, where, whereValue);
+		db.update(TABLE_NAME, blog.getContentValues(), where, whereValue);
 	}
 }
