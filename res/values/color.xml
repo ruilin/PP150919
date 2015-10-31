@@ -12,4 +12,14 @@
     <color name="title_bg">#277ae0</color>
     <color name="black">#000</color>
     <color name="orange">#ff9911</color>
+    
+    
+    <color name="blog_tag_0">#5555ff</color>
+    <color name="blog_tag_1">#f53433</color>
+    <color name="blog_tag_2">#235f33</color>
+    <color name="blog_tag_3">#2fff65</color>
+    <color name="blog_tag_4">#f2a3f1</color>
+    <color name="blog_tag_5">#56733f</color>
+    <color name="blog_tag_6">#098f3f</color>
+    <color name="blog_tag_7">#035f09</color>
 </resources>

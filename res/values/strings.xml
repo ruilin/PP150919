@@ -46,6 +46,8 @@
 	 <string name="blog_zone">旅游区域：</string>
 	 <string name="blog_gps">GPS位置：</string>
 	 <string name="blog_acount">选择账号：</string>
+	<string name="blog_level">日志评级：</string>
+	 <string name="blog_theme">选择日志主题：</string>
 	 
 	 <string name="blog_date_tips">点击选取</string>
 	 <string name="blog_scenery_tips">多个景点用逗号隔开</string>
@@ -56,4 +58,15 @@
 	 <string name="pic_selector_title">相册</string>
 	 <string name="pic_selector_bottom_left">所有图片</string>
 	 <string name="pic_selector_bottom_right">完成</string>
+	 
+	 <string name="blog_tag_0">风景</string>
+	 <string name="blog_tag_1">美食</string>
+	 <string name="blog_tag_2">民俗</string>
+	 <string name="blog_tag_3">特产</string>
+	 <string name="blog_tag_4">住宿</string>
+	 <string name="blog_tag_5">交通</string>
+	 <string name="blog_tag_6">门票</string>
+	 <string name="blog_tag_7">攻略</string>
+	 
+	 <string name="blog_btn_save">保存为草稿</string>
 </resources>

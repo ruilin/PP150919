@@ -21,7 +21,6 @@
 		    android:paddingLeft="@dimen/view_gap_horizontal"
 		    android:paddingRight="@dimen/view_gap_horizontal"
 		    android:orientation="vertical" >
-
 			<!-- 网格显示图片 行列间距5dp 每列宽度90dp -->
 		    <GridView
 		        android:id="@+id/gridView1"
@@ -33,7 +32,7 @@
 		        android:stretchMode="columnWidth"
 		        android:gravity="center" >
 		    </GridView>
-	        	
+
 		    <TextView
 		        android:id="@+id/textView1"
 		        android:paddingTop="10dp"
@@ -187,8 +186,140 @@
 		                android:ems="10" >
 					</EditText>
 		        </TableRow>
-		
+		        
+				<TableRow
+		            android:id="@+id/tableRow6"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:textColor="@color/black"
+		            android:layout_height="wrap_content" >
+					<TextView
+		                android:id="@+id/textView6"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="18dp"
+		                android:text="@string/blog_level" />
+		            <EditText
+		                android:id="@+id/et_level"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:focusable="false"
+		                android:textColor="@color/black"
+		                android:background="@color/white"
+		                android:layout_weight="1"
+		                android:textSize="18dp"
+		                android:hint="@string/blog_acount_tips"
+		                android:ems="10" >
+					</EditText>
+		        </TableRow>
+				
+				<TableRow
+		            android:id="@+id/tableRow7"
+		            android:paddingTop="10dp"
+		            android:layout_width="fill_parent"
+		            android:textColor="@color/black"
+		            android:layout_height="wrap_content" >
+					<TextView
+		                android:id="@+id/textView12"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="18dp"
+		                android:text="@string/blog_theme" />
+					<TextView
+		                android:id="@+id/tv_theme"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:textColor="@color/black"
+		                android:textSize="18dp"
+		                android:text="民俗" />
+				</TableRow>
 		    </TableLayout>
+		    		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center" >
+
+		        <GridLayout
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_alignParentTop="true"
+		            android:columnCount="4"
+		            android:columnOrderPreserved="false"
+		            android:orientation="horizontal"
+		            android:paddingBottom="10dp"
+		            android:paddingTop="10dp"
+		            android:rowCount="2"
+		            android:useDefaultMargins="true" >
+
+		            <Button
+		                android:id="@+id/button1"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_0"
+		                android:text="@string/blog_tag_0" />
+
+		            <Button
+		                android:id="@+id/button2"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_1"
+		                android:text="@string/blog_tag_1" />
+
+		            <Button
+		                android:id="@+id/button3"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_2"
+		                android:text="@string/blog_tag_2" />
+
+		            <Button
+		                android:id="@+id/button4"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_3"
+		                android:text="@string/blog_tag_3" />
+
+		            <Button
+		                android:id="@+id/button5"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_4"
+		                android:text="@string/blog_tag_4" />
+
+		            <Button
+		                android:id="@+id/button6"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_5"
+		                android:text="@string/blog_tag_5" />
+
+		            <Button
+		                android:id="@+id/button7"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_6"
+		                android:text="@string/blog_tag_6" />
+
+		            <Button
+		                android:id="@+id/button8"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:background="@color/blog_tag_7"
+		                android:text="@string/blog_tag_7" />
+		        </GridLayout>
+
+		    </RelativeLayout>
+    		<Button
+		        android:id="@+id/btn_save"
+		        android:layout_width="260dp"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_horizontal"
+		        android:background="@drawable/yellowbutton"
+		        android:text="@string/blog_btn_save" />
 	    </LinearLayout>
 	</ScrollView>
+
 </LinearLayout>

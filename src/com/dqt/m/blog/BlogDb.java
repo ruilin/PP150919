@@ -62,7 +62,6 @@ public class BlogDb extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getWritableDatabase();
 		String where = Blog.KEY_ID + " = ?";
 		String[] whereValue = { Integer.toString(blog.getId()) };
-		
 		db.update(TABLE_NAME, blog.getContentValues(), where, whereValue);
 	}
 }
